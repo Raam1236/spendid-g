@@ -13,13 +13,21 @@ export function extractGoogleDriveFileId(url: string): string | null {
  * Format image URL to ensure proper local asset paths and safe URI encoding on Netlify
  */
 export function getSafeImageUrl(url: string | undefined, defaultFallback = '/splendid-lake-breez-1.jpg'): string {
-  if (!url || typeof url !== 'string') return defaultFallback;
+  if (!url || typeof url !== 'string') {
+    return resolveLocalAsset(defaultFallback);
+  }
   const trimmed = url.trim();
-  if (!trimmed) return defaultFallback;
+  if (!trimmed) {
+    return resolveLocalAsset(defaultFallback);
+  }
 
-  // If a legacy Google Drive URL is passed, map it safely to a local project asset
+  // Handle Google Drive links
   if (trimmed.includes('drive.google.com') || trimmed.includes('googleusercontent.com')) {
-    return defaultFallback;
+    const fileId = extractGoogleDriveFileId(trimmed);
+    if (fileId) {
+      return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1600`;
+    }
+    return resolveLocalAsset(defaultFallback);
   }
 
   // For external HTTP / HTTPS URLs
@@ -27,11 +35,22 @@ export function getSafeImageUrl(url: string | undefined, defaultFallback = '/spl
     return trimmed;
   }
 
-  // Ensure leading slash for local public assets
-  const pathWithSlash = trimmed.startsWith('/') ? trimmed : '/' + trimmed;
+  return resolveLocalAsset(trimmed);
+}
 
-  // Encode URI to safely handle spaces or special characters on Netlify
-  return encodeURI(pathWithSlash);
+/**
+ * Resolves local public asset paths with import.meta.env.BASE_URL and safe URI encoding
+ */
+function resolveLocalAsset(pathStr: string): string {
+  const baseUrl = (import.meta.env && import.meta.env.BASE_URL) || '/';
+  const cleanPath = pathStr.startsWith('/') ? pathStr : '/' + pathStr;
+  
+  if (baseUrl === '/' || baseUrl === './') {
+    return encodeURI(cleanPath);
+  }
+  
+  const formattedBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+  return encodeURI(`${formattedBase}${cleanPath}`);
 }
 
 /**
@@ -45,8 +64,9 @@ export function handleImageError(
   
   if (!target.dataset.triedFallback) {
     target.dataset.triedFallback = 'true';
-    target.src = encodeURI(fallback);
+    target.src = getSafeImageUrl(fallback);
   }
 }
+
 
 
