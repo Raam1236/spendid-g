@@ -22,7 +22,7 @@ export const ARTICLES_DATA: Article[] = [
     date: 'July 2026',
     category: 'Construction Update',
     author: 'Project Engineering Cell',
-    image: '/SPLENDID LAKE BREEZ.jpg',
+    image: '/splendid-lake-breez-milestone-drive.jpg',
     readTime: '3 min read'
   },
   {

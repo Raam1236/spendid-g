@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { ARTICLES_DATA } from '../data/articles';
 import { Article } from '../types';
 import { ArrowUpRight, Calendar, Clock, X, Maximize2 } from 'lucide-react';
+import { getSafeImageUrl, handleImageError } from '../utils/imageUtils';
+import { ThreeDCard } from './ThreeDScroll';
 
 export const MediaSection: React.FC = () => {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
@@ -34,48 +36,50 @@ export const MediaSection: React.FC = () => {
         {/* Articles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {ARTICLES_DATA.map((art) => (
-            <article
-              key={art.id}
-              onClick={() => setSelectedArticle(art)}
-              className="group bg-white border border-[#1A1A1A]/10 hover:border-[#C5A059] transition-all duration-300 overflow-hidden shadow-sm hover:shadow-md flex flex-col justify-between cursor-pointer"
-            >
-              <div className="space-y-4">
-                <div className="aspect-[16/10] overflow-hidden bg-black relative">
-                  <img
-                    src={art.image}
-                    alt={art.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    referrerPolicy="no-referrer"
-                  />
-                  <span className="absolute top-4 left-4 bg-[#1A1A1A] text-[#C5A059] text-[10px] font-sans font-bold tracking-widest uppercase px-3 py-1 border border-white/10">
-                    {art.category}
-                  </span>
-                </div>
-
-                <div className="p-6 space-y-3">
-                  <div className="flex items-center gap-4 text-[11px] text-[#1A1A1A]/60 font-sans">
-                    <span className="flex items-center gap-1"><Calendar className="w-3 h-3 text-[#C5A059]" /> {art.date}</span>
-                    <span className="flex items-center gap-1"><Clock className="w-3 h-3 text-[#C5A059]" /> {art.readTime}</span>
+            <ThreeDCard key={art.id} depth={12}>
+              <article
+                onClick={() => setSelectedArticle(art)}
+                className="h-full group bg-white border border-[#1A1A1A]/10 hover:border-[#C5A059] transition-all duration-300 overflow-hidden shadow-sm hover:shadow-xl flex flex-col justify-between cursor-pointer rounded-xs"
+              >
+                <div className="space-y-4">
+                  <div className="aspect-[16/10] overflow-hidden bg-black relative">
+                    <img
+                      src={getSafeImageUrl(art.image)}
+                      alt={art.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      referrerPolicy="no-referrer"
+                      onError={handleImageError}
+                    />
+                    <span className="absolute top-4 left-4 bg-[#1A1A1A] text-[#C5A059] text-[10px] font-sans font-bold tracking-widest uppercase px-3 py-1 border border-white/10">
+                      {art.category}
+                    </span>
                   </div>
 
-                  <h3
-                    className="font-serif italic text-xl text-[#1A1A1A] group-hover:text-[#C5A059] transition-colors leading-snug font-normal"
-                    style={{ fontFamily: "'Georgia', serif" }}
-                  >
-                    {art.title}
-                  </h3>
+                  <div className="p-6 space-y-3">
+                    <div className="flex items-center gap-4 text-[11px] text-[#1A1A1A]/60 font-sans">
+                      <span className="flex items-center gap-1"><Calendar className="w-3 h-3 text-[#C5A059]" /> {art.date}</span>
+                      <span className="flex items-center gap-1"><Clock className="w-3 h-3 text-[#C5A059]" /> {art.readTime}</span>
+                    </div>
 
-                  <p className="text-xs text-[#1A1A1A]/70 font-sans font-light line-clamp-3 leading-relaxed">
-                    {art.snippet}
-                  </p>
+                    <h3
+                      className="font-serif italic text-xl text-[#1A1A1A] group-hover:text-[#C5A059] transition-colors leading-snug font-normal"
+                      style={{ fontFamily: "'Georgia', serif" }}
+                    >
+                      {art.title}
+                    </h3>
+
+                    <p className="text-xs text-[#1A1A1A]/70 font-sans font-light line-clamp-3 leading-relaxed">
+                      {art.snippet}
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              <div className="p-6 pt-0 border-t border-[#1A1A1A]/10 mt-4 flex items-center justify-between text-xs font-bold text-[#C5A059] uppercase tracking-wider">
-                <span>READ ARTICLE</span>
-                <ArrowUpRight className="w-4 h-4 text-[#1A1A1A] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </div>
-            </article>
+                <div className="p-6 pt-0 border-t border-[#1A1A1A]/10 mt-4 flex items-center justify-between text-xs font-bold text-[#C5A059] uppercase tracking-wider">
+                  <span>READ ARTICLE</span>
+                  <ArrowUpRight className="w-4 h-4 text-[#1A1A1A] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </div>
+              </article>
+            </ThreeDCard>
           ))}
         </div>
 
@@ -103,7 +107,7 @@ export const MediaSection: React.FC = () => {
               className="aspect-[16/9] overflow-hidden border border-[#1A1A1A]/10 cursor-pointer group relative"
               title="Click to view full image"
             >
-              <img src={selectedArticle.image} alt={selectedArticle.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
+              <img src={getSafeImageUrl(selectedArticle.image)} alt={selectedArticle.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" onError={handleImageError} />
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white text-xs font-bold uppercase tracking-widest">
                 <Maximize2 className="w-5 h-5 text-[#C5A059]" />
                 <span>VIEW FULL IMAGE</span>
@@ -146,11 +150,12 @@ export const MediaSection: React.FC = () => {
           </button>
 
           <img
-            src={fullscreenImage}
+            src={getSafeImageUrl(fullscreenImage)}
             alt="Full resolution view"
             className="max-h-[92vh] max-w-[92vw] object-contain shadow-2xl rounded-sm"
             onClick={(e) => e.stopPropagation()}
             referrerPolicy="no-referrer"
+            onError={handleImageError}
           />
         </div>
       )}

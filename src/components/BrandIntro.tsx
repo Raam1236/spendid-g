@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, MapPin } from 'lucide-react';
 import { SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE } from '../data/splendidLakeBreezImage';
+import { getSafeImageUrl, handleImageError } from '../utils/imageUtils';
 
 export const BrandIntro: React.FC = () => {
   return (
@@ -59,10 +60,11 @@ export const BrandIntro: React.FC = () => {
             <div className="relative z-10 bg-white shadow-2xl overflow-hidden rounded-sm">
               <div className="overflow-hidden aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/5] relative group">
                 <img
-                  src={SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE}
+                  src={getSafeImageUrl(SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE)}
                   alt="Splendid Lake Breez View Begur"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   referrerPolicy="no-referrer"
+                  onError={handleImageError}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80" />
                 <div className="absolute bottom-5 left-5 right-5 text-white space-y-1">

@@ -14,30 +14,33 @@ export const SplendidLogo: React.FC<SplendidLogoProps> = ({
   className = ''
 }) => {
   const isDark = variant === 'dark';
-  const groupTextColor = isDark ? '#FFFFFF' : '#222222';
-  const taglineColor = isDark ? '#E5E7EB' : '#111827';
-  const dividerColor = isDark ? 'rgba(255,255,255,0.2)' : '#CCCCCC';
+  const groupTextColor = isDark ? '#F3F4F6' : '#1A1A1A';
+  const taglineColor = isDark ? '#D1D5DB' : '#4A4A4A';
+  const dividerColor = isDark ? 'rgba(197, 160, 89, 0.35)' : 'rgba(197, 160, 89, 0.45)';
 
   // Size configurations
   const scaleMap = {
-    sm: { icon: 'w-7 h-7', title: 'text-xs sm:text-sm', tagline: 'text-[7px]' },
-    md: { icon: 'w-9 h-9', title: 'text-base sm:text-lg', tagline: 'text-[8px] sm:text-[9px]' },
+    sm: { icon: 'w-7 h-7', title: 'text-xs sm:text-sm', tagline: 'text-[7.5px]' },
+    md: { icon: 'w-9 sm:w-10 h-9 sm:h-10', title: 'text-base sm:text-[17px]', tagline: 'text-[8.5px] sm:text-[9.5px]' },
     lg: { icon: 'w-12 h-12', title: 'text-xl sm:text-2xl', tagline: 'text-[10px] sm:text-[11px]' }
   };
 
   const currentSize = scaleMap[size];
 
   return (
-    <div className={`flex items-center gap-2.5 sm:gap-3 ${className}`}>
-      {/* Splendid Emblem Box */}
-      <div className={`relative shrink-0 ${currentSize.icon} flex items-center justify-center`}>
+    <div className={`group/logo flex items-center gap-3 sm:gap-3.5 transition-all duration-300 ${className}`}>
+      {/* Splendid Emblem Box with subtle premium ring/glow */}
+      <div className={`relative shrink-0 ${currentSize.icon} flex items-center justify-center p-0.5 rounded transition-transform duration-500 group-hover/logo:scale-105`}>
+        {/* Subtle Ambient Backlight Glow on hover */}
+        <div className="absolute -inset-1 bg-gradient-to-r from-[#863B6F]/20 via-[#C5A059]/20 to-[#863B6F]/20 rounded-lg blur-sm opacity-60 group-hover/logo:opacity-100 transition-opacity duration-500" />
+        
         <svg
           viewBox="0 0 100 100"
-          className="w-full h-full drop-shadow-sm"
+          className="relative w-full h-full drop-shadow-[0_2px_8px_rgba(134,59,111,0.25)]"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Blue top-right accent bracket */}
+          {/* Blue top-right accent bracket with crisp gradient fill look */}
           <path
             d="M 68 8 L 92 8 L 92 32"
             stroke="#4A86C5"
@@ -47,7 +50,7 @@ export const SplendidLogo: React.FC<SplendidLogoProps> = ({
           />
 
           {/* Main Purple/Plum Box */}
-          <rect x="10" y="16" width="74" height="74" fill="#863B6F" rx="1" />
+          <rect x="10" y="16" width="74" height="74" fill="#863B6F" rx="2" />
 
           {/* Inner 4 White Squares */}
           {/* 1. Large square - bottom left */}
@@ -66,31 +69,32 @@ export const SplendidLogo: React.FC<SplendidLogoProps> = ({
 
       {/* Brand Text Block */}
       <div className="flex flex-col justify-center leading-none">
-        <div className="flex items-center gap-1 font-sans font-extrabold tracking-[0.14em]">
-          <span className="text-[#863B6F] font-black">
+        <div className="flex items-center gap-1.5 font-sans font-extrabold tracking-[0.16em]">
+          <span
+            className="text-[#863B6F] transition-colors duration-300 group-hover/logo:text-[#A04585]"
+            style={{
+              color: '#863B6F',
+              textShadow: '0 0 12px rgba(134,59,111,0.15)'
+            }}
+          >
             SPLENDID
           </span>
           <span
-            className="tracking-[0.16em] font-bold"
-            style={{ color: isDark ? '#FFFFFF' : '#1A1A1A' }}
+            className="font-bold tracking-[0.18em] transition-colors duration-300"
+            style={{ color: groupTextColor }}
           >
             GROUP
           </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#FFD700] to-[#C5A059] inline-block ml-0.5 animate-pulse" />
         </div>
 
         {showTagline && (
-          <div className="mt-0.5">
+          <div className="mt-1 relative">
             <div
-              className="h-[1px] w-full mb-0.5"
-              style={{
-                background: isDark
-                  ? 'linear-gradient(90deg, rgba(197,160,89,0.6) 0%, rgba(255,215,0,0.8) 50%, rgba(197,160,89,0.3) 100%)'
-                  : 'linear-gradient(90deg, rgba(134,59,111,0.5) 0%, rgba(197,160,89,0.7) 50%, rgba(134,59,111,0.2) 100%)'
-              }}
+              className="h-[1px] w-full mb-0.5 transition-all duration-500 group-hover/logo:bg-[#C5A059]"
+              style={{ backgroundColor: dividerColor }}
             />
             <span
-              className={`block font-sans font-semibold tracking-[0.1em] lowercase ${currentSize.tagline}`}
+              className={`block font-sans font-semibold tracking-[0.12em] lowercase ${currentSize.tagline} opacity-90`}
               style={{ color: taglineColor }}
             >
               thinks outside the box
@@ -101,3 +105,4 @@ export const SplendidLogo: React.FC<SplendidLogoProps> = ({
     </div>
   );
 };
+

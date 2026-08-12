@@ -1,4 +1,5 @@
 import React from 'react';
+import { ThreeDCard } from './ThreeDScroll';
 
 export const DesignPhilosophy: React.FC = () => {
   const principles = [
@@ -50,28 +51,29 @@ export const DesignPhilosophy: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {principles.map((p) => (
-            <div
-              key={p.num}
-              className="bg-white p-8 border border-[#1A1A1A]/10 hover:border-[#C5A059] transition-all duration-300 shadow-sm hover:shadow-lg flex flex-col justify-between space-y-6"
-            >
-              <div className="space-y-4">
-                <span
-                  className="font-serif italic text-3xl font-normal text-[#C5A059] block border-b border-[#1A1A1A]/10 pb-3"
-                  style={{ fontFamily: "'Georgia', serif" }}
-                >
-                  {p.num}
-                </span>
-                <h3
-                  className="font-serif italic text-xl text-[#1A1A1A] font-normal"
-                  style={{ fontFamily: "'Georgia', serif" }}
-                >
-                  {p.title}
-                </h3>
-                <p className="text-xs text-[#1A1A1A]/70 font-sans font-light leading-relaxed">
-                  {p.desc}
-                </p>
+            <ThreeDCard key={p.num} depth={12}>
+              <div
+                className="h-full bg-white p-8 border border-[#1A1A1A]/10 hover:border-[#C5A059] transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between space-y-6"
+              >
+                <div className="space-y-4">
+                  <span
+                    className="font-serif italic text-3xl font-normal text-[#C5A059] block border-b border-[#1A1A1A]/10 pb-3"
+                    style={{ fontFamily: "'Georgia', serif" }}
+                  >
+                    {p.num}
+                  </span>
+                  <h3
+                    className="font-serif italic text-xl text-[#1A1A1A] font-normal"
+                    style={{ fontFamily: "'Georgia', serif" }}
+                  >
+                    {p.title}
+                  </h3>
+                  <p className="text-xs text-[#1A1A1A]/70 font-sans font-light leading-relaxed">
+                    {p.desc}
+                  </p>
+                </div>
               </div>
-            </div>
+            </ThreeDCard>
           ))}
         </div>
 

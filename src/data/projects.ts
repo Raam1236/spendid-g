@@ -22,10 +22,10 @@ export const PROJECTS_DATA: Project[] = [
     heroImage: SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE,
     gallery: [
       SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE,
+      '/SPLENDID LAKE BREEZ-1.jpg',
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80'
     ],
     featured: true,
     coordinates: { lat: 12.879, lng: 77.625 },
@@ -94,8 +94,9 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'High-efficiency modern homes engineered for tech executives and young families seeking effortless commute and urban luxury.',
     longDescription: 'Splendid Elite stands as an architectural tribute to precision and contemporary comfort in the heart of Electronics City Phase 1. Offering intelligent spatial geometry, seamless digital connectivity, and serene landscaped gardens.',
     story: 'Crafted for modern professionals who value both time and aesthetic tranquility, Splendid Elite eliminates long city commutes while providing a calm, gated sanctuary filled with greenery.',
-    heroImage: '/SPLENDID ELITE1.jpg',
+    heroImage: '/splendid-elite-drive.jpg',
     gallery: [
+      '/splendid-elite-drive.jpg',
       '/SPLENDID ELITE1.jpg',
       '/splendid-elite-2.jpg',
       '/splendid-elite-3.jpg'
@@ -164,8 +165,9 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'Iconic architectural high-rise featuring elevated skywalk bridges, infinity cloud pools, and swift access to Kempegowda International Airport.',
     longDescription: 'Splendid Skywalk redefines the North Bengaluru skyline. Inspired by futuristic international high-rises, the development connects twin residential towers with a dramatic double-height cantilevered skywalk deck at the 18th floor.',
     story: 'North Bengaluru is evolving as the city’s premier innovation and aviation corridor. Splendid Skywalk provides an elevated sanctuary where sweeping views meet high-design living.',
-    heroImage: '/sky-wall.jpg',
+    heroImage: '/splendid-skywalk-drive.jpg',
     gallery: [
+      '/splendid-skywalk-drive.jpg',
       '/sky-wall.jpg',
       'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80'
@@ -219,8 +221,9 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'Grade-A boutique commercial landmark engineered for flagship retail, fintech headquarters, and luxury dining spaces.',
     longDescription: 'Splendid Plaza offers unmatched high-street visibility along Bengaluru’s high-density commercial artery. Featuring energy-efficient glass curtain walls, high-speed elevator banks, and flexible open floor plates.',
     story: 'Designed to elevate brand presence for corporate headquarters and premium retail, Splendid Plaza combines architectural prestige with high footfall accessibility.',
-    heroImage: '/plessa.jpg',
+    heroImage: '/splendid-plaza-drive.jpg',
     gallery: [
+      '/splendid-plaza-drive.jpg',
       '/plessa.jpg',
       'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80'
     ],
@@ -270,10 +273,11 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'Vibrant commercial hub combining upscale retail promenades, alfresco dining plazas, and boutique corporate suites on Sarjapur Road.',
     longDescription: 'Splendid Times Square captures the vibrant energy of Sarjapur Road’s technology epicenter. Designed with open-air pedestrian avenues, double-height retail storefronts, and premium rooftop restaurant terraces.',
     story: 'Serving over 50,000 tech professionals and affluent residential communities within a 3km radius, Splendid Times Square is destined to become the defining destination for commerce and lifestyle.',
-    heroImage: '/splendid-times.jpg',
+    heroImage: '/splendid-times-drive.jpg',
     gallery: [
+      '/splendid-times-drive.jpg',
       '/splendid-times.jpg',
-      '/splendid-lake-breez.jpg'
+      '/SPLENDID LAKE BREEZ-1.jpg'
     ],
     featured: false,
     coordinates: { lat: 12.911, lng: 77.685 },
@@ -320,10 +324,11 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'Bespoke executive apartments with oversized viewing decks, low density living, and mature landscaped gardens.',
     longDescription: 'Skylines offers exclusive low-density high-rise living with only 4 apartments per floor. Designed for families seeking privacy, acoustic isolation, and spacious living rooms bathed in morning sunlight.',
     story: 'Skylines represents Splendid Group’s commitment to timeless architectural proportions and peaceful residential communities in East Bengaluru.',
-    heroImage: '/Skylines-1.jpg',
+    heroImage: '/splendid-skylines-drive.jpg',
     gallery: [
-      '/Skylines-1.jpg',
-      '/splendid-lake-breez.jpg'
+      '/splendid-skylines-drive.jpg',
+      '/splendid-skyline.jpg',
+      '/SPLENDID LAKE BREEZ-1.jpg'
     ],
     featured: false,
     coordinates: { lat: 12.908, lng: 77.698 },
@@ -370,10 +375,11 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'Quiet luxury enclave nestled amid lush greenery, zen garden courtyards, and charming walking trails.',
     longDescription: 'Lake Dews is a boutique residential community designed around central green courtyards, water fountains, and tranquil seating pavilions. An ideal haven for peaceful family living with quick connectivity to HSR Layout.',
     story: 'Created with a focus on human scale, natural light, and green community spaces, Lake Dews provides a refreshing retreat from urban busyness.',
-    heroImage: '/SPLENDID LAKE DEWS.jpeg',
+    heroImage: '/Splendid Lake Dews.jpg',
     gallery: [
+      '/Splendid Lake Dews.jpg',
       '/SPLENDID LAKE DEWS.jpeg',
-      '/splendid-lake-breez.jpg'
+      '/SPLENDID LAKE BREEZ-1.jpg'
     ],
     featured: false,
     coordinates: { lat: 12.888, lng: 77.635 },

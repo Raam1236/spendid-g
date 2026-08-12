@@ -14,6 +14,7 @@ import { Footer } from './components/Footer';
 import { ProjectDetailModal } from './components/ProjectDetailModal';
 import { EnquiryModal } from './components/EnquiryModal';
 import { ConciergeDrawer } from './components/ConciergeDrawer';
+import { ThreeDSection } from './components/ThreeDScroll';
 import { Project } from './types';
 
 export default function App() {
@@ -43,7 +44,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FBF9F5] text-[#1C1917] font-sans selection:bg-[#C5A059] selection:text-white">
+    <div className="min-h-screen bg-[#FBF9F5] text-[#1C1917] font-sans selection:bg-[#C5A059] selection:text-white overflow-x-hidden">
       {/* Navigation Bar */}
       <Navbar
         onOpenEnquiry={() => handleOpenEnquiry()}
@@ -62,32 +63,48 @@ export default function App() {
         }}
       />
 
-      {/* Brand & Corporate Overview (Includes Stats & RERA Pillars) */}
-      <BrandIntro />
+      {/* Brand & Corporate Overview */}
+      <ThreeDSection id="about" intensity="subtle">
+        <BrandIntro />
+      </ThreeDSection>
 
       {/* Projects Portfolio Grid */}
-      <ProjectShowcase
-        onSelectProject={(proj) => setSelectedProject(proj)}
-        onOpenEnquiry={(pName) => handleOpenEnquiry(pName)}
-      />
+      <ThreeDSection id="projects" intensity="medium">
+        <ProjectShowcase
+          onSelectProject={(proj) => setSelectedProject(proj)}
+          onOpenEnquiry={(pName) => handleOpenEnquiry(pName)}
+        />
+      </ThreeDSection>
 
       {/* Design Philosophy & 4 Principles */}
-      <DesignPhilosophy />
+      <ThreeDSection id="philosophy" intensity="subtle">
+        <DesignPhilosophy />
+      </ThreeDSection>
 
       {/* Bengaluru Microclimate & Urban Context */}
-      <BengaluruStory />
+      <ThreeDSection id="bengaluru" intensity="medium">
+        <BengaluruStory />
+      </ThreeDSection>
 
       {/* Interactive Mortgage & EMI Calculator */}
-      <MortgageCalculator />
+      <ThreeDSection id="calculator" intensity="subtle">
+        <MortgageCalculator />
+      </ThreeDSection>
 
       {/* Resident Testimonials */}
-      <TestimonialsSection />
+      <ThreeDSection id="testimonials" intensity="subtle">
+        <TestimonialsSection />
+      </ThreeDSection>
 
       {/* News & Insights */}
-      <MediaSection />
+      <ThreeDSection id="media" intensity="medium">
+        <MediaSection />
+      </ThreeDSection>
 
       {/* Interactive Site Visit Booking Section */}
-      <SiteVisitSection preselectedProject={siteVisitProjectName} />
+      <ThreeDSection id="site-visit" intensity="subtle">
+        <SiteVisitSection preselectedProject={siteVisitProjectName} />
+      </ThreeDSection>
 
       {/* Floating CTA Triggers */}
       <FloatingCTABar
@@ -127,3 +144,4 @@ export default function App() {
     </div>
   );
 }
+

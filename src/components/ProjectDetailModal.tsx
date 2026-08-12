@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Project, FloorPlan } from '../types';
+import { getSafeImageUrl, handleImageError } from '../utils/imageUtils';
 import {
   X,
   MapPin,
@@ -105,10 +106,11 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                 title="Click to view full image"
               >
                 <img
-                  src={project.heroImage}
+                  src={getSafeImageUrl(project.heroImage)}
                   alt={project.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
+                  onError={handleImageError}
                 />
                 <div className="absolute top-4 right-4 bg-black/70 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10 border border-white/20">
                   <Maximize2 className="w-5 h-5 text-[#C5A880]" />
@@ -279,10 +281,11 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                         title="Click to view full image"
                       >
                         <img
-                          src={selectedFloorPlan.image}
+                          src={getSafeImageUrl(selectedFloorPlan.image)}
                           alt={selectedFloorPlan.title}
                           className="max-h-full max-w-full object-contain filter contrast-105 group-hover:scale-105 transition-transform duration-500"
                           referrerPolicy="no-referrer"
+                          onError={handleImageError}
                         />
                         <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white text-xs font-bold uppercase tracking-widest">
                           <Maximize2 className="w-5 h-5 text-[#C5A880]" />
@@ -355,10 +358,11 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                     className="group relative aspect-[4/3] bg-black overflow-hidden border border-[#E2DBD0] cursor-pointer"
                   >
                     <img
-                      src={imgUrl}
+                      src={getSafeImageUrl(imgUrl)}
                       alt={`${project.name} photo ${i + 1}`}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       referrerPolicy="no-referrer"
+                      onError={handleImageError}
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                       <Maximize2 className="w-6 h-6 text-white" />
@@ -498,11 +502,12 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           )}
 
           <img
-            src={customLightboxImages[customLightboxIndex]}
+            src={getSafeImageUrl(customLightboxImages[customLightboxIndex])}
             alt="Fullscreen view"
             className="max-h-[90vh] max-w-[90vw] object-contain shadow-2xl rounded-sm"
             onClick={(e) => e.stopPropagation()}
             referrerPolicy="no-referrer"
+            onError={handleImageError}
           />
         </div>
       )}

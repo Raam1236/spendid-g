@@ -1,5 +1,6 @@
 import React from 'react';
 import { SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE } from '../data/splendidLakeBreezImage';
+import { getSafeImageUrl, handleImageError } from '../utils/imageUtils';
 
 export const ArchitectureSection: React.FC = () => {
   const visualItems = [
@@ -18,7 +19,7 @@ export const ArchitectureSection: React.FC = () => {
     {
       title: 'Natural Light Integration',
       sub: 'Floor-to-Ceiling UPVC Windows',
-      img: '/splendid-lake-dews.jpg',
+      img: '/Splendid Lake Dews.jpg',
       span: 'md:col-span-4'
     },
     {
@@ -58,10 +59,11 @@ export const ArchitectureSection: React.FC = () => {
           {visualItems.map((item, i) => (
             <div key={i} className={`${item.span} group relative overflow-hidden bg-[#1A1A1A] aspect-[16/10] border border-[#1A1A1A]/10`}>
               <img
-                src={item.img}
+                src={getSafeImageUrl(item.img)}
                 alt={item.title}
                 className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
+                onError={handleImageError}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">

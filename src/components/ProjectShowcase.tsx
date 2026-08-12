@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Project } from '../types';
 import { PROJECTS_DATA } from '../data/projects';
 import { ArrowUpRight, MapPin, CheckCircle2 } from 'lucide-react';
+import { getSafeImageUrl, handleImageError } from '../utils/imageUtils';
+import { ThreeDCard } from './ThreeDScroll';
 
 interface ProjectShowcaseProps {
   onSelectProject: (project: Project) => void;
@@ -93,85 +95,91 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
             const gridSpan = isFeaturedLarge ? 'lg:col-span-12' : idx % 3 === 0 ? 'lg:col-span-7' : 'lg:col-span-5';
 
             return (
-              <div
+              <ThreeDCard
                 key={project.id}
-                className={`${gridSpan} group bg-white border border-[#1A1A1A]/10 hover:border-[#C5A059] transition-all duration-500 shadow-sm hover:shadow-xl flex flex-col justify-between overflow-hidden cursor-pointer`}
-                onClick={() => onSelectProject(project)}
+                depth={15}
+                className={`${gridSpan}`}
               >
-                {/* Image Container */}
-                <div className="relative overflow-hidden aspect-[16/10] bg-[#1A1A1A]">
-                  <img
-                    src={project.heroImage}
-                    alt={project.name}
-                    className="w-full h-full object-cover luxury-image-hover group-hover:scale-105 transition-transform duration-700"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+                <div
+                  className="h-full group bg-white border border-[#1A1A1A]/10 hover:border-[#C5A059] transition-all duration-500 shadow-sm hover:shadow-2xl flex flex-col justify-between overflow-hidden cursor-pointer rounded-xs"
+                  onClick={() => onSelectProject(project)}
+                >
+                  {/* Image Container */}
+                  <div className="relative overflow-hidden aspect-[16/10] bg-[#1A1A1A]">
+                    <img
+                      src={getSafeImageUrl(project.heroImage)}
+                      alt={project.name}
+                      className="w-full h-full object-cover luxury-image-hover group-hover:scale-105 transition-transform duration-700"
+                      referrerPolicy="no-referrer"
+                      onError={handleImageError}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
 
-                  {/* Top Badges */}
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 z-10">
-                    <span className="bg-[#1A1A1A]/90 backdrop-blur-md text-[#C5A059] text-[10px] tracking-[0.2em] uppercase font-bold px-3 py-1 border border-[#C5A059]/40">
-                      {project.propertyType} • {project.status}
-                    </span>
-                    {project.reraNumber && (
-                      <span className="hidden sm:inline-flex items-center gap-1 bg-white/95 backdrop-blur-md text-[#1A1A1A] text-[10px] font-mono font-bold px-2.5 py-1 border border-[#1A1A1A]/10">
-                        <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                        RERA REGISTERED
+                    {/* Top Badges */}
+                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 z-10">
+                      <span className="bg-[#1A1A1A]/90 backdrop-blur-md text-[#C5A059] text-[10px] tracking-[0.2em] uppercase font-bold px-3 py-1 border border-[#C5A059]/40">
+                        {project.propertyType} • {project.status}
                       </span>
-                    )}
+                      {project.reraNumber && (
+                        <span className="hidden sm:inline-flex items-center gap-1 bg-white/95 backdrop-blur-md text-[#1A1A1A] text-[10px] font-mono font-bold px-2.5 py-1 border border-[#1A1A1A]/10">
+                          <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                          RERA REGISTERED
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Hover Overlay CTA */}
+                    <div className="absolute bottom-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="bg-[#C5A059] text-white text-xs font-bold tracking-widest px-4 py-2 uppercase inline-flex items-center gap-1 shadow-lg">
+                        EXPLORE PROJECT <ArrowUpRight className="w-4 h-4" />
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Hover Overlay CTA */}
-                  <div className="absolute bottom-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="bg-[#C5A059] text-white text-xs font-bold tracking-widest px-4 py-2 uppercase inline-flex items-center gap-1 shadow-lg">
-                      EXPLORE PROJECT <ArrowUpRight className="w-4 h-4" />
-                    </span>
+                  {/* Content Section */}
+                  <div className="p-6 md:p-8 space-y-4 flex-1 flex flex-col justify-between">
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2 text-xs text-[#C5A059] font-bold tracking-widest uppercase">
+                        <MapPin className="w-3.5 h-3.5 text-[#C5A059]" />
+                        <span>{project.location}</span>
+                      </div>
+
+                      <h3
+                        className="font-serif italic text-2xl md:text-3xl text-[#1A1A1A] group-hover:text-[#C5A059] transition-colors font-normal"
+                        style={{ fontFamily: "'Georgia', serif" }}
+                      >
+                        {project.name}
+                      </h3>
+
+                      <p className="text-xs sm:text-sm text-[#1A1A1A]/70 font-sans font-light line-clamp-2 leading-relaxed">
+                        {project.shortDescription}
+                      </p>
+                    </div>
+
+                    <div className="pt-4 border-t border-[#1A1A1A]/10 flex flex-wrap items-center justify-between gap-4 text-xs font-sans">
+                      <div>
+                        <span className="text-[10px] tracking-wider text-[#1A1A1A]/50 font-bold uppercase block">CONFIGURATION</span>
+                        <span className="font-semibold text-[#1A1A1A]">{project.configuration}</span>
+                      </div>
+
+                      <div>
+                        <span className="text-[10px] tracking-wider text-[#1A1A1A]/50 font-bold uppercase block">STARTING PRICE</span>
+                        <span className="font-serif text-base font-bold text-[#C5A059]" style={{ fontFamily: "'Georgia', serif" }}>{project.priceRange}</span>
+                      </div>
+
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onOpenEnquiry(project.name);
+                        }}
+                        className="px-5 py-2 border border-[#1A1A1A] text-[10px] font-bold uppercase tracking-widest hover:bg-[#1A1A1A] hover:text-white transition-colors cursor-pointer"
+                      >
+                        ENQUIRE
+                      </button>
+                    </div>
                   </div>
                 </div>
-
-                {/* Content Section */}
-                <div className="p-6 md:p-8 space-y-4 flex-1 flex flex-col justify-between">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-xs text-[#C5A059] font-bold tracking-widest uppercase">
-                      <MapPin className="w-3.5 h-3.5 text-[#C5A059]" />
-                      <span>{project.location}</span>
-                    </div>
-
-                    <h3
-                      className="font-serif italic text-2xl md:text-3xl text-[#1A1A1A] group-hover:text-[#C5A059] transition-colors font-normal"
-                      style={{ fontFamily: "'Georgia', serif" }}
-                    >
-                      {project.name}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-[#1A1A1A]/70 font-sans font-light line-clamp-2 leading-relaxed">
-                      {project.shortDescription}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-[#1A1A1A]/10 flex flex-wrap items-center justify-between gap-4 text-xs font-sans">
-                    <div>
-                      <span className="text-[10px] tracking-wider text-[#1A1A1A]/50 font-bold uppercase block">CONFIGURATION</span>
-                      <span className="font-semibold text-[#1A1A1A]">{project.configuration}</span>
-                    </div>
-
-                    <div>
-                      <span className="text-[10px] tracking-wider text-[#1A1A1A]/50 font-bold uppercase block">STARTING PRICE</span>
-                      <span className="font-serif text-base font-bold text-[#C5A059]" style={{ fontFamily: "'Georgia', serif" }}>{project.priceRange}</span>
-                    </div>
-
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onOpenEnquiry(project.name);
-                      }}
-                      className="px-5 py-2 border border-[#1A1A1A] text-[10px] font-bold uppercase tracking-widest hover:bg-[#1A1A1A] hover:text-white transition-colors cursor-pointer"
-                    >
-                      ENQUIRE
-                    </button>
-                  </div>
-                </div>
-              </div>
+              </ThreeDCard>
             );
           })}
         </div>
