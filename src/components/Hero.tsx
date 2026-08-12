@@ -30,7 +30,6 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProjects, onDiscoverBrand }
           className="w-full h-full object-cover opacity-50 filter contrast-[1.08] saturate-[1.1]"
         >
           <source src="/hero-bg.mp4" type="video/mp4" />
-          <source src="https://v1.pinimg.com/videos/iht/expMp4/8e/3f/91/8e3f91d5826b17772b563861fc817288_720w.mp4" type="video/mp4" />
         </video>
         {/* Soft luxury dark overlay designed to keep 50% opacity video clearly visible while preserving text legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0F0E0D]/65 via-[#0F0E0D]/45 to-[#0F0E0D]/85" />

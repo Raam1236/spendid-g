@@ -10,7 +10,7 @@ export const ARTICLES_DATA: Article[] = [
     date: 'August 2026',
     category: 'Architecture & Design',
     author: 'Splendid Editorial Team',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/projects/exterior-1.jpg',
     readTime: '4 min read'
   },
   {
@@ -34,7 +34,7 @@ export const ARTICLES_DATA: Article[] = [
     date: 'June 2026',
     category: 'Sustainability',
     author: 'ESG Leadership',
-    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/projects/eco-garden.jpg',
     readTime: '5 min read'
   }
 ];

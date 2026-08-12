@@ -23,9 +23,9 @@ export const PROJECTS_DATA: Project[] = [
     gallery: [
       SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE,
       '/splendid-lake-breez-1.jpg',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80'
+      '/images/projects/exterior-1.jpg',
+      '/images/projects/living-1.jpg',
+      '/images/projects/balcony-1.jpg'
     ],
     featured: true,
     coordinates: { lat: 12.879, lng: 77.625 },
@@ -47,7 +47,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 2,
         bathrooms: 2,
         balconies: 2,
-        image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80',
+        image: '/images/projects/floorplan-3bhk.jpg',
         features: ['Lake-facing master bedroom balcony', 'Separate utility zone next to kitchen', 'Vastu-compliant East facing entry']
       },
       {
@@ -59,7 +59,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 3,
         bathrooms: 3,
         balconies: 3,
-        image: 'https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=800&q=80',
+        image: '/images/projects/floorplan-2bhk.jpg',
         features: ['Expansive 18ft corner balcony', 'Walk-in wardrobe room in Master Suite', 'Private foyer entry space']
       }
     ],
@@ -120,7 +120,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 2,
         bathrooms: 2,
         balconies: 1,
-        image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80',
+        image: '/images/projects/floorplan-3bhk.jpg',
         features: ['Smart home touch switches included', 'Efficient space utilization with zero wasted corridor', 'Utility drying balcony']
       },
       {
@@ -132,7 +132,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 3,
         bathrooms: 3,
         balconies: 2,
-        image: 'https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=800&q=80',
+        image: '/images/projects/floorplan-2bhk.jpg',
         features: ['Dual master bedrooms with attached baths', 'Spacious open-plan kitchen bar counter']
       }
     ],
@@ -169,8 +169,8 @@ export const PROJECTS_DATA: Project[] = [
     gallery: [
       '/splendid-skywalk-drive.jpg',
       '/sky-wall.jpg',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80'
+      '/images/projects/balcony-1.jpg',
+      '/images/projects/eco-garden.jpg'
     ],
     featured: true,
     coordinates: { lat: 13.102, lng: 77.608 },
@@ -190,7 +190,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 3,
         bathrooms: 3,
         balconies: 3,
-        image: 'https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=800&q=80',
+        image: '/images/projects/floorplan-2bhk.jpg',
         features: ['270-degree panoramic airport corridor views', 'Dedicated maid/utility quarter']
       }
     ],
@@ -225,7 +225,7 @@ export const PROJECTS_DATA: Project[] = [
     gallery: [
       '/splendid-plaza-drive.jpg',
       '/plessa.jpg',
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80'
+      '/images/projects/commercial-1.jpg'
     ],
     featured: false,
     coordinates: { lat: 12.935, lng: 77.624 },
@@ -244,7 +244,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 0,
         bathrooms: 4,
         balconies: 0,
-        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
+        image: '/images/projects/commercial-1.jpg',
         features: ['Columns placed along perimeter for maximum floor layout freedom', 'Double glass facade with energy conservation']
       }
     ],
@@ -295,7 +295,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 0,
         bathrooms: 2,
         balconies: 0,
-        image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80',
+        image: '/images/projects/villa-1.jpg',
         features: ['Direct road frontage with 24ft glass display facade', 'Dedicated customer valet drop-off zone']
       }
     ],
@@ -346,7 +346,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 3,
         bathrooms: 3,
         balconies: 2,
-        image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80',
+        image: '/images/projects/floorplan-3bhk.jpg',
         features: ['100% Vastu compliance', 'Separated living & dining areas for private family gatherings']
       }
     ],
@@ -396,7 +396,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 2,
         bathrooms: 2,
         balconies: 2,
-        image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80',
+        image: '/images/projects/floorplan-3bhk.jpg',
         features: ['Courtyard garden view balcony', 'Spacious modular kitchen space']
       }
     ],
