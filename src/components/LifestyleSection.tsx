@@ -30,7 +30,7 @@ export const LifestyleSection: React.FC = () => {
           <div className="space-y-4">
             <div className="aspect-[4/5] overflow-hidden border border-white/10 bg-[#242424]">
               <img
-                src={getSafeImageUrl("/SPLENDID LAKE BREEZ-1.jpg")}
+                src={getSafeImageUrl("/splendid-lake-breez-1.jpg")}
                 alt="Waterfront & Pools"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"
@@ -62,7 +62,7 @@ export const LifestyleSection: React.FC = () => {
           <div className="space-y-4">
             <div className="aspect-[4/5] overflow-hidden border border-white/10 bg-[#242424]">
               <img
-                src={getSafeImageUrl("/SPLENDID ELITE1.jpg")}
+                src={getSafeImageUrl("/splendid-elite-1.jpg")}
                 alt="Fitness & Wellness"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"

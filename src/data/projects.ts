@@ -22,7 +22,7 @@ export const PROJECTS_DATA: Project[] = [
     heroImage: SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE,
     gallery: [
       SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE,
-      '/SPLENDID LAKE BREEZ-1.jpg',
+      '/splendid-lake-breez-1.jpg',
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80'
@@ -97,7 +97,7 @@ export const PROJECTS_DATA: Project[] = [
     heroImage: '/splendid-elite-drive.jpg',
     gallery: [
       '/splendid-elite-drive.jpg',
-      '/SPLENDID ELITE1.jpg',
+      '/splendid-elite-1.jpg',
       '/splendid-elite-2.jpg',
       '/splendid-elite-3.jpg'
     ],
@@ -277,7 +277,7 @@ export const PROJECTS_DATA: Project[] = [
     gallery: [
       '/splendid-times-drive.jpg',
       '/splendid-times.jpg',
-      '/SPLENDID LAKE BREEZ-1.jpg'
+      '/splendid-lake-breez-1.jpg'
     ],
     featured: false,
     coordinates: { lat: 12.911, lng: 77.685 },
@@ -328,7 +328,7 @@ export const PROJECTS_DATA: Project[] = [
     gallery: [
       '/splendid-skylines-drive.jpg',
       '/splendid-skyline.jpg',
-      '/SPLENDID LAKE BREEZ-1.jpg'
+      '/splendid-lake-breez-1.jpg'
     ],
     featured: false,
     coordinates: { lat: 12.908, lng: 77.698 },
@@ -375,11 +375,10 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'Quiet luxury enclave nestled amid lush greenery, zen garden courtyards, and charming walking trails.',
     longDescription: 'Lake Dews is a boutique residential community designed around central green courtyards, water fountains, and tranquil seating pavilions. An ideal haven for peaceful family living with quick connectivity to HSR Layout.',
     story: 'Created with a focus on human scale, natural light, and green community spaces, Lake Dews provides a refreshing retreat from urban busyness.',
-    heroImage: '/Splendid Lake Dews.jpg',
+    heroImage: '/splendid-lake-dews.jpg',
     gallery: [
-      '/Splendid Lake Dews.jpg',
-      '/SPLENDID LAKE DEWS.jpeg',
-      '/SPLENDID LAKE BREEZ-1.jpg'
+      '/splendid-lake-dews.jpg',
+      '/splendid-lake-breez-1.jpg'
     ],
     featured: false,
     coordinates: { lat: 12.888, lng: 77.635 },

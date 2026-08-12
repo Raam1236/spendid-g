@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * Format image URL to ensure proper leading slashes and URL encoding
  */
-export function getSafeImageUrl(url: string | undefined, defaultFallback = '/SPLENDID LAKE BREEZ-1.jpg'): string {
+export function getSafeImageUrl(url: string | undefined, defaultFallback = '/splendid-lake-breez-1.jpg'): string {
   if (!url || typeof url !== 'string') return defaultFallback;
   const trimmed = url.trim();
   if (!trimmed) return defaultFallback;
@@ -25,7 +25,7 @@ export function getSafeImageUrl(url: string | undefined, defaultFallback = '/SPL
  */
 export function handleImageError(
   e: React.SyntheticEvent<HTMLImageElement, Event>,
-  fallback = '/SPLENDID LAKE BREEZ-1.jpg'
+  fallback = '/splendid-lake-breez-1.jpg'
 ) {
   const target = e.currentTarget;
   if (!target.dataset.triedFallback) {

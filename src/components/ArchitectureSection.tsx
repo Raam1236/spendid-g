@@ -19,7 +19,7 @@ export const ArchitectureSection: React.FC = () => {
     {
       title: 'Natural Light Integration',
       sub: 'Floor-to-Ceiling UPVC Windows',
-      img: '/Splendid Lake Dews.jpg',
+      img: '/splendid-lake-dews.jpg',
       span: 'md:col-span-4'
     },
     {
