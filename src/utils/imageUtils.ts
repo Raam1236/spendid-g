@@ -27,6 +27,9 @@ export function getSafeImageUrl(url: string | undefined, defaultFallback = '/spl
     if (fileId === '1Sz3f7BP5oLVLSc1sHbZLTLkwBsMDuCRM') {
       return resolveLocalAsset('/splendid-lake-dews-drive.jpg');
     }
+    if (fileId === '1Tr8olVbaSp2j5sA8RrFHi7nvjMluZk-9') {
+      return resolveLocalAsset('/splendid-lake-breez-milestone-drive.jpg');
+    }
     return resolveLocalAsset(defaultFallback);
   }
 

@@ -10,7 +10,7 @@ export const ARTICLES_DATA: Article[] = [
     date: 'August 2026',
     category: 'Architecture & Design',
     author: 'Splendid Editorial Team',
-    image: '/images/projects/exterior-1.jpg',
+    image: '/splendid-lake-breez-milestone-drive.jpg',
     readTime: '4 min read'
   },
   {
