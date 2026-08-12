@@ -375,9 +375,9 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'Quiet luxury enclave nestled amid lush greenery, zen garden courtyards, and charming walking trails.',
     longDescription: 'Lake Dews is a boutique residential community designed around central green courtyards, water fountains, and tranquil seating pavilions. An ideal haven for peaceful family living with quick connectivity to HSR Layout.',
     story: 'Created with a focus on human scale, natural light, and green community spaces, Lake Dews provides a refreshing retreat from urban busyness.',
-    heroImage: '/splendid-lake-dews.jpg',
+    heroImage: '/splendid-lake-dews-drive.jpg',
     gallery: [
-      '/splendid-lake-dews.jpg',
+      '/splendid-lake-dews-drive.jpg',
       '/splendid-lake-breez-1.jpg'
     ],
     featured: false,

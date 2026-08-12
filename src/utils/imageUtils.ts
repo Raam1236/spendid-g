@@ -21,11 +21,11 @@ export function getSafeImageUrl(url: string | undefined, defaultFallback = '/spl
     return resolveLocalAsset(defaultFallback);
   }
 
-  // Handle Google Drive links
+  // Handle Google Drive links by resolving directly to local project assets
   if (trimmed.includes('drive.google.com') || trimmed.includes('googleusercontent.com')) {
     const fileId = extractGoogleDriveFileId(trimmed);
-    if (fileId) {
-      return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1600`;
+    if (fileId === '1Sz3f7BP5oLVLSc1sHbZLTLkwBsMDuCRM') {
+      return resolveLocalAsset('/splendid-lake-dews-drive.jpg');
     }
     return resolveLocalAsset(defaultFallback);
   }
