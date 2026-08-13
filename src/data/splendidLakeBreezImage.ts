@@ -1,5 +1,5 @@
 // High-resolution photorealistic architectural image for Splendid Lake Breez
-export const SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE = "/splendid-lake-breez-drive.jpg";
+export const SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE = "/splendid-about-brand.jpg";
 export const SPLENDID_LAKE_BREEZ_GALLERY_IMAGES = [
   "/splendid-lake-breez-drive.jpg",
   "/splendid-lake-breez-1.jpg",

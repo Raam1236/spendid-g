@@ -5,7 +5,7 @@ import React from 'react';
  */
 export function extractGoogleDriveFileId(url: string): string | null {
   if (!url) return null;
-  const match = url.match(/(?:file\/d\/|id=|lh3\.googleusercontent\.com\/d\/|drive\.google\.com\/thumbnail\?id=)([a-zA-Z0-9_-]{15,})/);
+  const match = url.match(/(?:file\/d\/|[\?&]id=|googleusercontent\.com\/d\/|thumbnail\?id=|drive\.google\.com\/d\/)([a-zA-Z0-9_-]{15,})/);
   return match ? match[1] : null;
 }
 
@@ -21,14 +21,42 @@ export function getSafeImageUrl(url: string | undefined, defaultFallback = '/spl
     return resolveLocalAsset(defaultFallback);
   }
 
-  // Handle Google Drive links by resolving directly to local project assets
+  // Handle Google Drive links by resolving directly to local project assets or high-res Google CDN
   if (trimmed.includes('drive.google.com') || trimmed.includes('googleusercontent.com')) {
     const fileId = extractGoogleDriveFileId(trimmed);
-    if (fileId === '1Sz3f7BP5oLVLSc1sHbZLTLkwBsMDuCRM') {
-      return resolveLocalAsset('/splendid-lake-dews-drive.jpg');
-    }
-    if (fileId === '1Tr8olVbaSp2j5sA8RrFHi7nvjMluZk-9') {
-      return resolveLocalAsset('/splendid-lake-breez-milestone-drive.jpg');
+    if (fileId) {
+      if (fileId === '1Sz3f7BP5oLVLSc1sHbZLTLkwBsMDuCRM') {
+        return resolveLocalAsset('/splendid-lake-dews-drive.jpg');
+      }
+      if (fileId === '1Tr8olVbaSp2j5sA8RrFHi7nvjMluZk-9') {
+        return resolveLocalAsset('/splendid-lake-breez-milestone-drive.jpg');
+      }
+      if (fileId === '1Bf8dotLV7yJONb8L7DEFmtGaMEUnVJt3') {
+        return resolveLocalAsset('/splendid-about-brand.jpg');
+      }
+      if (fileId === '1bc2Q_PmRE_roZhYD_YQwuU5CPwN7C_-h') {
+        return resolveLocalAsset('/splendid-elite-drive-2.jpg');
+      }
+      if (fileId === '1yNNsIXGDN87wJAaiIWjm0esWuXrEcr4W') {
+        return resolveLocalAsset('/splendid-skywalk-drive-2.jpg');
+      }
+      if (fileId === '1U-2bp7-cxVoQtpX-RZF_scoD4vLatsEr') {
+        return resolveLocalAsset('/splendid-plaza-drive-2.jpg');
+      }
+      if (fileId === '10htyQwZDS5EJuGn_9fT5LnlJmN1MnUNA') {
+        return resolveLocalAsset('/splendid-times-drive-2.jpg');
+      }
+      if (fileId === '1-SN1AUdiRws9r5sr2gyHeJsyOT9lxhMj') {
+        return resolveLocalAsset('/splendid-skylines-drive-2.jpg');
+      }
+      if (fileId === '1_6_rwHwVFoo03PvTzFGb-0d12mdoBknn') {
+        return resolveLocalAsset('/splendid-real-estate-trends-drive.jpg');
+      }
+      if (fileId === '1Sz3f7BP5oLVLSc1sHbZLTLkwBsMDuCRM') {
+        return resolveLocalAsset('/splendid-lake-dews-drive-2.jpg');
+      }
+      // Convert any other Google Drive link into high-res direct image CDN link working on both mobile & desktop
+      return `https://lh3.googleusercontent.com/d/${fileId}=w1600`;
     }
     return resolveLocalAsset(defaultFallback);
   }
