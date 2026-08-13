@@ -94,8 +94,9 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'High-efficiency modern homes engineered for tech executives and young families seeking effortless commute and urban luxury.',
     longDescription: 'Splendid Elite stands as an architectural tribute to precision and contemporary comfort in the heart of Electronics City Phase 1. Offering intelligent spatial geometry, seamless digital connectivity, and serene landscaped gardens.',
     story: 'Crafted for modern professionals who value both time and aesthetic tranquility, Splendid Elite eliminates long city commutes while providing a calm, gated sanctuary filled with greenery.',
-    heroImage: '/splendid-elite-drive-2.jpg',
+    heroImage: '/splendid-elite-ibb.jpg',
     gallery: [
+      '/splendid-elite-ibb.jpg',
       '/splendid-elite-drive-2.jpg',
       '/splendid-elite-1.jpg',
       '/splendid-elite-2.jpg',
@@ -165,8 +166,9 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'Iconic architectural high-rise featuring elevated skywalk bridges, infinity cloud pools, and swift access to Kempegowda International Airport.',
     longDescription: 'Splendid Skywalk redefines the North Bengaluru skyline. Inspired by futuristic international high-rises, the development connects twin residential towers with a dramatic double-height cantilevered skywalk deck at the 18th floor.',
     story: 'North Bengaluru is evolving as the city’s premier innovation and aviation corridor. Splendid Skywalk provides an elevated sanctuary where sweeping views meet high-design living.',
-    heroImage: '/splendid-skywalk-drive-2.jpg',
+    heroImage: '/sky-wall.jpg',
     gallery: [
+      '/sky-wall.jpg',
       '/splendid-skywalk-drive-2.jpg',
       '/sky-wall.jpg',
       '/images/projects/balcony-1.jpg',
@@ -221,8 +223,9 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'Grade-A boutique commercial landmark engineered for flagship retail, fintech headquarters, and luxury dining spaces.',
     longDescription: 'Splendid Plaza offers unmatched high-street visibility along Bengaluru’s high-density commercial artery. Featuring energy-efficient glass curtain walls, high-speed elevator banks, and flexible open floor plates.',
     story: 'Designed to elevate brand presence for corporate headquarters and premium retail, Splendid Plaza combines architectural prestige with high footfall accessibility.',
-    heroImage: '/splendid-plaza-drive-2.jpg',
+    heroImage: '/splendid-plaza-ibb.jpg',
     gallery: [
+      '/splendid-plaza-ibb.jpg',
       '/splendid-plaza-drive-2.jpg',
       '/plessa.jpg',
       '/images/projects/commercial-1.jpg'
@@ -273,8 +276,9 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'Vibrant commercial hub combining upscale retail promenades, alfresco dining plazas, and boutique corporate suites on Sarjapur Road.',
     longDescription: 'Splendid Times Square captures the vibrant energy of Sarjapur Road’s technology epicenter. Designed with open-air pedestrian avenues, double-height retail storefronts, and premium rooftop restaurant terraces.',
     story: 'Serving over 50,000 tech professionals and affluent residential communities within a 3km radius, Splendid Times Square is destined to become the defining destination for commerce and lifestyle.',
-    heroImage: '/splendid-times-drive-2.jpg',
+    heroImage: '/splendid-times-ibb.jpg',
     gallery: [
+      '/splendid-times-ibb.jpg',
       '/splendid-times-drive-2.jpg',
       '/splendid-times.jpg',
       '/splendid-lake-breez-1.jpg'
@@ -324,8 +328,9 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'Bespoke executive apartments with oversized viewing decks, low density living, and mature landscaped gardens.',
     longDescription: 'Skylines offers exclusive low-density high-rise living with only 4 apartments per floor. Designed for families seeking privacy, acoustic isolation, and spacious living rooms bathed in morning sunlight.',
     story: 'Skylines represents Splendid Group’s commitment to timeless architectural proportions and peaceful residential communities in East Bengaluru.',
-    heroImage: '/splendid-skylines-drive-2.jpg',
+    heroImage: '/splendid-skylines-ibb.jpg',
     gallery: [
+      '/splendid-skylines-ibb.jpg',
       '/splendid-skylines-drive-2.jpg',
       '/splendid-skyline.jpg',
       '/splendid-lake-breez-1.jpg'
@@ -375,8 +380,9 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'Quiet luxury enclave nestled amid lush greenery, zen garden courtyards, and charming walking trails.',
     longDescription: 'Lake Dews is a boutique residential community designed around central green courtyards, water fountains, and tranquil seating pavilions. An ideal haven for peaceful family living with quick connectivity to HSR Layout.',
     story: 'Created with a focus on human scale, natural light, and green community spaces, Lake Dews provides a refreshing retreat from urban busyness.',
-    heroImage: '/splendid-lake-dews-drive-2.jpg',
+    heroImage: '/splendid-lake-dews-ibb.jpg',
     gallery: [
+      '/splendid-lake-dews-ibb.jpg',
       '/splendid-lake-dews-drive-2.jpg',
       '/splendid-lake-breez-1.jpg'
     ],

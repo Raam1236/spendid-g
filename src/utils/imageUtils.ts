@@ -21,12 +21,37 @@ export function getSafeImageUrl(url: string | undefined, defaultFallback = '/spl
     return resolveLocalAsset(defaultFallback);
   }
 
+  // Handle ImgBB links
+  if (trimmed.includes('ibb.co')) {
+    if (trimmed.includes('gL2qRM8H') || trimmed.includes('KpP4rjgR') || trimmed.includes('sky-wall')) {
+      return resolveLocalAsset('/sky-wall.jpg');
+    }
+    if (trimmed.includes('vMQ3PcM') || trimmed.includes('sX6KwgX') || trimmed.includes('Splendid-Lake-Breez')) {
+      return resolveLocalAsset('/splendid-lake-breez-vmq.jpg');
+    }
+    if (trimmed.includes('r2SzzBWS') || trimmed.includes('WvwMMrTw') || trimmed.includes('SPLENDID-LAKE-DEWS')) {
+      return resolveLocalAsset('/splendid-lake-dews-ibb.jpg');
+    }
+    if (trimmed.includes('nMH9cTF8') || trimmed.includes('s90nwhZJ') || trimmed.includes('3mD2NwnY') || trimmed.includes('SPLENDID-ELITE')) {
+      return resolveLocalAsset('/splendid-elite-ibb.jpg');
+    }
+    if (trimmed.includes('VcgJLGDq') || trimmed.includes('8LrNmw27') || trimmed.includes('7dnjSDV1') || trimmed.includes('Splendid-Times')) {
+      return resolveLocalAsset('/splendid-times-ibb.jpg');
+    }
+    if (trimmed.includes('HpqFP2g1') || trimmed.includes('gFJjW7gH') || trimmed.includes('plessa')) {
+      return resolveLocalAsset('/splendid-plaza-ibb.jpg');
+    }
+    if (trimmed.includes('FqY2TjVK') || trimmed.includes('QjHLw1df') || trimmed.includes('wrQVmxsR') || trimmed.includes('Skylines')) {
+      return resolveLocalAsset('/splendid-skylines-ibb.jpg');
+    }
+  }
+
   // Handle Google Drive links by resolving directly to local project assets or high-res Google CDN
   if (trimmed.includes('drive.google.com') || trimmed.includes('googleusercontent.com')) {
     const fileId = extractGoogleDriveFileId(trimmed);
     if (fileId) {
       if (fileId === '1Sz3f7BP5oLVLSc1sHbZLTLkwBsMDuCRM') {
-        return resolveLocalAsset('/splendid-lake-dews-drive.jpg');
+        return resolveLocalAsset('/splendid-lake-dews-drive-2.jpg');
       }
       if (fileId === '1Tr8olVbaSp2j5sA8RrFHi7nvjMluZk-9') {
         return resolveLocalAsset('/splendid-lake-breez-milestone-drive.jpg');
@@ -52,11 +77,8 @@ export function getSafeImageUrl(url: string | undefined, defaultFallback = '/spl
       if (fileId === '1_6_rwHwVFoo03PvTzFGb-0d12mdoBknn') {
         return resolveLocalAsset('/splendid-real-estate-trends-drive.jpg');
       }
-      if (fileId === '1Sz3f7BP5oLVLSc1sHbZLTLkwBsMDuCRM') {
-        return resolveLocalAsset('/splendid-lake-dews-drive-2.jpg');
-      }
       // Convert any other Google Drive link into high-res direct image CDN link working on both mobile & desktop
-      return `https://lh3.googleusercontent.com/d/${fileId}=w1600`;
+      return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1600`;
     }
     return resolveLocalAsset(defaultFallback);
   }
@@ -85,16 +107,33 @@ function resolveLocalAsset(pathStr: string): string {
 }
 
 /**
- * Reliable image error handler to prevent broken image icons on Netlify
+ * Reliable image error handler to prevent broken image icons
  */
 export function handleImageError(
   e: React.SyntheticEvent<HTMLImageElement, Event>,
   fallback = '/splendid-lake-breez-1.jpg'
 ) {
   const target = e.currentTarget;
-  
+  const currentSrc = target.src || '';
+
   if (!target.dataset.triedFallback) {
-    target.dataset.triedFallback = 'true';
+    target.dataset.triedFallback = '1';
+    const fileId = extractGoogleDriveFileId(currentSrc);
+    if (fileId) {
+      target.src = `https://lh3.googleusercontent.com/d/${fileId}=w1600`;
+      return;
+    }
+    target.src = getSafeImageUrl(fallback);
+  } else if (target.dataset.triedFallback === '1') {
+    target.dataset.triedFallback = '2';
+    const fileId = extractGoogleDriveFileId(currentSrc);
+    if (fileId) {
+      target.src = `https://drive.google.com/uc?export=view&id=${fileId}`;
+      return;
+    }
+    target.src = getSafeImageUrl(fallback);
+  } else if (target.dataset.triedFallback === '2') {
+    target.dataset.triedFallback = '3';
     target.src = getSafeImageUrl(fallback);
   }
 }
