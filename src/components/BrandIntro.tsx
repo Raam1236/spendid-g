@@ -60,7 +60,7 @@ export const BrandIntro: React.FC = () => {
             <div className="relative z-10 bg-white shadow-2xl overflow-hidden rounded-sm">
               <div className="overflow-hidden aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/5] relative group">
                 <img
-                  src={getSafeImageUrl('/splendid-about-brand.jpg')}
+                  src={getSafeImageUrl(SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE)}
                   alt="Splendid Group Heritage & Architecture"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   referrerPolicy="no-referrer"

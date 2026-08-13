@@ -21,6 +21,13 @@ export function getSafeImageUrl(url: string | undefined, defaultFallback = '/spl
     return resolveLocalAsset(defaultFallback);
   }
 
+  // Handle Cloudinary links
+  if (trimmed.includes('cloudinary.com')) {
+    if (trimmed.includes('Splendid_Lake_Breez') || trimmed.includes('v1786628007')) {
+      return resolveLocalAsset('/splendid-lake-breez-cloudinary.jpg');
+    }
+  }
+
   // Handle ImgBB links
   if (trimmed.includes('ibb.co')) {
     if (trimmed.includes('gL2qRM8H') || trimmed.includes('KpP4rjgR') || trimmed.includes('sky-wall')) {
