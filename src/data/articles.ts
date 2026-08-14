@@ -10,7 +10,7 @@ export const ARTICLES_DATA: Article[] = [
     date: 'August 2026',
     category: 'Architecture & Design',
     author: 'Splendid Editorial Team',
-    image: '/splendid-real-estate-trends-drive.jpg',
+    image: '/media-article-1-cloudinary.jpg',
     readTime: '4 min read'
   },
   {
@@ -22,7 +22,7 @@ export const ARTICLES_DATA: Article[] = [
     date: 'July 2026',
     category: 'Construction Update',
     author: 'Project Engineering Cell',
-    image: '/splendid-about-brand.jpg',
+    image: '/splendid-lake-breez-cloudinary.jpg',
     readTime: '3 min read'
   },
   {
@@ -34,7 +34,7 @@ export const ARTICLES_DATA: Article[] = [
     date: 'June 2026',
     category: 'Sustainability',
     author: 'ESG Leadership',
-    image: '/images/regenerated_image_1786553379611.png',
+    image: '/media-article-3-cloudinary.jpg',
     readTime: '5 min read'
   }
 ];

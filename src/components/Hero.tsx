@@ -19,7 +19,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProjects, onDiscoverBrand }
         }}
       />
 
-      {/* Background Video */}
+      {/* Background Video (50% Opacity) */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
         <video
           autoPlay
@@ -30,9 +30,10 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProjects, onDiscoverBrand }
           className="w-full h-full object-cover opacity-50 filter contrast-[1.08] saturate-[1.1]"
         >
           <source src="/hero-bg.mp4" type="video/mp4" />
+          <source src="https://v1.pinimg.com/videos/iht/720p/10/e2/c4/10e2c433862bdc7a6115308039051a69.mp4" type="video/mp4" />
         </video>
         {/* Soft luxury dark overlay designed to keep 50% opacity video clearly visible while preserving text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0F0E0D]/65 via-[#0F0E0D]/45 to-[#0F0E0D]/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0F0E0D]/60 via-[#0F0E0D]/30 to-[#0F0E0D]/80" />
       </div>
 
       {/* Background Watermark Typography */}

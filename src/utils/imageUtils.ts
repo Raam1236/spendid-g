@@ -23,8 +23,35 @@ export function getSafeImageUrl(url: string | undefined, defaultFallback = '/spl
 
   // Handle Cloudinary links
   if (trimmed.includes('cloudinary.com')) {
-    if (trimmed.includes('Splendid_Lake_Breez') || trimmed.includes('v1786628007')) {
+    if (trimmed.includes('v1786628018') || trimmed.includes('9.57.58') || trimmed.includes('WhatsApp_Image_2026-08-09_at_9.57.58')) {
+      return resolveLocalAsset('/media-article-3-cloudinary.jpg');
+    }
+    if (trimmed.includes('v1786628014') || trimmed.includes('9.58.03') || trimmed.includes('WhatsApp_Image_2026-08-09_at_9.58.03')) {
+      return resolveLocalAsset('/media-article-1-cloudinary.jpg');
+    }
+    if (trimmed.includes('v1786628016')) {
+      return resolveLocalAsset('/media-article-1-cloudinary.jpg');
+    }
+    if (trimmed.includes('SPLENDID_LAKE_DEWS') || trimmed.includes('lake_dews') || trimmed.includes('v1786642684')) {
+      return resolveLocalAsset('/splendid-lake-dews-cloudinary.jpg');
+    }
+    if (trimmed.includes('Skylines') || trimmed.includes('skylines') || trimmed.includes('v1786628009')) {
+      return resolveLocalAsset('/splendid-skylines-cloudinary.jpg');
+    }
+    if (trimmed.includes('Splendid_Times') || trimmed.includes('times')) {
+      return resolveLocalAsset('/splendid-times-cloudinary.jpg');
+    }
+    if (trimmed.includes('Splendid_Plaza') || trimmed.includes('plaza')) {
+      return resolveLocalAsset('/splendid-plaza-cloudinary.jpg');
+    }
+    if (trimmed.includes('Splendid_Skywalk') || trimmed.includes('skywalk')) {
+      return resolveLocalAsset('/splendid-skywalk-cloudinary.jpg');
+    }
+    if (trimmed.includes('Splendid_Lake_Breez') || trimmed.includes('v1786628007') || trimmed.includes('v1786628012') || trimmed.includes('91cc968b')) {
       return resolveLocalAsset('/splendid-lake-breez-cloudinary.jpg');
+    }
+    if (trimmed.includes('SPLENDID_ELITE') || trimmed.includes('v1786628008')) {
+      return resolveLocalAsset('/splendid-elite-cloudinary.jpg');
     }
   }
 
