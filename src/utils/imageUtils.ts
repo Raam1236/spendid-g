@@ -47,7 +47,7 @@ export function getSafeImageUrl(url: string | undefined, defaultFallback = '/spl
     if (trimmed.includes('Splendid_Skywalk') || trimmed.includes('skywalk')) {
       return resolveLocalAsset('/splendid-skywalk-cloudinary.jpg');
     }
-    if (trimmed.includes('Splendid_Lake_Breez') || trimmed.includes('v1786628007') || trimmed.includes('v1786628012') || trimmed.includes('91cc968b')) {
+    if (trimmed.includes('Splendid_Lake_Breez') || trimmed.includes('68f6b5c0e5e232f588838164fb277271') || trimmed.includes('v1786628007') || trimmed.includes('v1786628012') || trimmed.includes('91cc968b')) {
       return resolveLocalAsset('/splendid-lake-breez-cloudinary.jpg');
     }
     if (trimmed.includes('SPLENDID_ELITE') || trimmed.includes('v1786628008')) {
