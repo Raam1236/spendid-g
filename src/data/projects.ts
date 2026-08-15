@@ -5,6 +5,7 @@ import splendidEliteHero from '../assets/images/regenerated_image_1786810371160.
 import splendidSkywalkHero from '../assets/images/regenerated_image_1786810497555.png';
 import splendidPlazaHero from '../assets/images/regenerated_image_1786810718786.png';
 import skylinesHero from '../assets/images/regenerated_image_1786810833457.png';
+import lakeDewsHero from '../assets/images/regenerated_image_1786811005969.png';
 
 export const PROJECTS_DATA: Project[] = [
   {
@@ -403,8 +404,9 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'Quiet luxury enclave nestled amid lush greenery, zen garden courtyards, and charming walking trails.',
     longDescription: 'Lake Dews is a boutique residential community designed around central green courtyards, water fountains, and tranquil seating pavilions. An ideal haven for peaceful family living with quick connectivity to HSR Layout.',
     story: 'Created with a focus on human scale, natural light, and green community spaces, Lake Dews provides a refreshing retreat from urban busyness.',
-    heroImage: 'https://i.pinimg.com/736x/a6/81/b8/a681b8c57af4a4b5bc4c92d43d5e059b.jpg',
+    heroImage: lakeDewsHero,
     gallery: [
+      lakeDewsHero,
       'https://i.pinimg.com/736x/a6/81/b8/a681b8c57af4a4b5bc4c92d43d5e059b.jpg',
       '/splendid-lake-dews-pin.jpg',
       '/splendid-lake-dews-cloudinary.jpg',

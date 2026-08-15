@@ -1,4 +1,7 @@
 import { Article } from '../types';
+import articleOneHero from '../assets/images/regenerated_image_1786811143448.png';
+import articleTwoHero from '../assets/images/regenerated_image_1786811257864.png';
+import articleThreeHero from '../assets/images/regenerated_image_1786811395409.png';
 
 export const ARTICLES_DATA: Article[] = [
   {
@@ -10,7 +13,7 @@ export const ARTICLES_DATA: Article[] = [
     date: 'August 2026',
     category: 'Architecture & Design',
     author: 'Splendid Editorial Team',
-    image: 'https://i.pinimg.com/736x/a8/91/4c/a8914ca9365a1f6292679be91212f5ac.jpg',
+    image: articleOneHero,
     readTime: '4 min read'
   },
   {
@@ -22,7 +25,7 @@ export const ARTICLES_DATA: Article[] = [
     date: 'July 2026',
     category: 'Construction Update',
     author: 'Project Engineering Cell',
-    image: '/splendid-lake-breez-cloudinary.jpg',
+    image: articleTwoHero,
     readTime: '3 min read'
   },
   {
@@ -34,7 +37,7 @@ export const ARTICLES_DATA: Article[] = [
     date: 'June 2026',
     category: 'Sustainability',
     author: 'ESG Leadership',
-    image: 'https://i.pinimg.com/736x/7c/92/8f/7c928fc13a5a84bb1dcadc8b198a450f.jpg',
+    image: articleThreeHero,
     readTime: '5 min read'
   }
 ];
