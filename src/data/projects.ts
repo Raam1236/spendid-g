@@ -1,6 +1,10 @@
 import { Project } from '../types';
 import { SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE } from './splendidLakeBreezImage';
 import splendidTimesSquareHero from '../assets/images/regenerated_image_1786784513531.png';
+import splendidEliteHero from '../assets/images/regenerated_image_1786810371160.png';
+import splendidSkywalkHero from '../assets/images/regenerated_image_1786810497555.png';
+import splendidPlazaHero from '../assets/images/regenerated_image_1786810718786.png';
+import skylinesHero from '../assets/images/regenerated_image_1786810833457.png';
 
 export const PROJECTS_DATA: Project[] = [
   {
@@ -95,8 +99,9 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'High-efficiency modern homes engineered for tech executives and young families seeking effortless commute and urban luxury.',
     longDescription: 'Splendid Elite stands as an architectural tribute to precision and contemporary comfort in the heart of Electronics City Phase 1. Offering intelligent spatial geometry, seamless digital connectivity, and serene landscaped gardens.',
     story: 'Crafted for modern professionals who value both time and aesthetic tranquility, Splendid Elite eliminates long city commutes while providing a calm, gated sanctuary filled with greenery.',
-    heroImage: 'https://i.pinimg.com/736x/73/d5/21/73d5213658a8964806583dd8bc6bcaad.jpg',
+    heroImage: splendidEliteHero,
     gallery: [
+      splendidEliteHero,
       'https://i.pinimg.com/736x/73/d5/21/73d5213658a8964806583dd8bc6bcaad.jpg',
       '/splendid-elite-pin.jpg',
       '/splendid-elite-cloudinary.jpg',
@@ -169,8 +174,9 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'Iconic architectural high-rise featuring elevated skywalk bridges, infinity cloud pools, and swift access to Kempegowda International Airport.',
     longDescription: 'Splendid Skywalk redefines the North Bengaluru skyline. Inspired by futuristic international high-rises, the development connects twin residential towers with a dramatic double-height cantilevered skywalk deck at the 18th floor.',
     story: 'North Bengaluru is evolving as the city’s premier innovation and aviation corridor. Splendid Skywalk provides an elevated sanctuary where sweeping views meet high-design living.',
-    heroImage: 'https://i.pinimg.com/736x/fb/45/a9/fb45a92a228c1bfcf642fc281656e47e.jpg',
+    heroImage: splendidSkywalkHero,
     gallery: [
+      splendidSkywalkHero,
       'https://i.pinimg.com/736x/fb/45/a9/fb45a92a228c1bfcf642fc281656e47e.jpg',
       '/splendid-skywalk-pin.jpg',
       '/splendid-skywalk-cloudinary.jpg',
@@ -228,8 +234,9 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'Grade-A boutique commercial landmark engineered for flagship retail, fintech headquarters, and luxury dining spaces.',
     longDescription: 'Splendid Plaza offers unmatched high-street visibility along Bengaluru’s high-density commercial artery. Featuring energy-efficient glass curtain walls, high-speed elevator banks, and flexible open floor plates.',
     story: 'Designed to elevate brand presence for corporate headquarters and premium retail, Splendid Plaza combines architectural prestige with high footfall accessibility.',
-    heroImage: 'https://i.pinimg.com/736x/15/fb/a9/15fba90ecb282ad3c85a0673e3d9506e.jpg',
+    heroImage: splendidPlazaHero,
     gallery: [
+      splendidPlazaHero,
       'https://i.pinimg.com/736x/15/fb/a9/15fba90ecb282ad3c85a0673e3d9506e.jpg',
       '/splendid-plaza-pin.jpg',
       '/splendid-plaza-cloudinary.jpg',
@@ -340,8 +347,9 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'Bespoke executive apartments with oversized viewing decks, low density living, and mature landscaped gardens.',
     longDescription: 'Skylines offers exclusive low-density high-rise living with only 4 apartments per floor. Designed for families seeking privacy, acoustic isolation, and spacious living rooms bathed in morning sunlight.',
     story: 'Skylines represents Splendid Group’s commitment to timeless architectural proportions and peaceful residential communities in East Bengaluru.',
-    heroImage: 'https://i.pinimg.com/736x/9f/7d/d1/9f7dd1571ef3ed72ca84e0659963d882.jpg',
+    heroImage: skylinesHero,
     gallery: [
+      skylinesHero,
       'https://i.pinimg.com/736x/9f/7d/d1/9f7dd1571ef3ed72ca84e0659963d882.jpg',
       'https://in.pinterest.com/pin/933652566522099167/',
       '/splendid-skylines-pin.jpg',
