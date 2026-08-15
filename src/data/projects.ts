@@ -1,5 +1,6 @@
 import { Project } from '../types';
 import { SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE } from './splendidLakeBreezImage';
+import splendidTimesSquareHero from '../assets/images/regenerated_image_1786784513531.png';
 
 export const PROJECTS_DATA: Project[] = [
   {
@@ -283,8 +284,9 @@ export const PROJECTS_DATA: Project[] = [
     shortDescription: 'Vibrant commercial hub combining upscale retail promenades, alfresco dining plazas, and boutique corporate suites on Sarjapur Road.',
     longDescription: 'Splendid Times Square captures the vibrant energy of Sarjapur Road’s technology epicenter. Designed with open-air pedestrian avenues, double-height retail storefronts, and premium rooftop restaurant terraces.',
     story: 'Serving over 50,000 tech professionals and affluent residential communities within a 3km radius, Splendid Times Square is destined to become the defining destination for commerce and lifestyle.',
-    heroImage: 'https://i.pinimg.com/736x/5d/c0/b4/5dc0b495c1e3509fb6c56ae2b784baaf.jpg',
+    heroImage: splendidTimesSquareHero,
     gallery: [
+      splendidTimesSquareHero,
       'https://i.pinimg.com/736x/5d/c0/b4/5dc0b495c1e3509fb6c56ae2b784baaf.jpg',
       'https://in.pinterest.com/pin/933652566522099186/',
       '/splendid-times-pin.jpg',
