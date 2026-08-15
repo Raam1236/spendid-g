@@ -21,6 +21,11 @@ export function getSafeImageUrl(url: string | undefined, defaultFallback = '/spl
     return resolveLocalAsset(defaultFallback);
   }
 
+  // Preserve Vite bundled assets, data URLs, blob URLs, and regenerated image assets directly
+  if (trimmed.startsWith('data:') || trimmed.startsWith('blob:') || trimmed.startsWith('/assets/') || trimmed.startsWith('/@') || trimmed.includes('regenerated_image')) {
+    return trimmed;
+  }
+
   // Handle Pinterest links
   if (trimmed.includes('pin.it') || trimmed.includes('pinimg.com') || trimmed.includes('pinterest.com')) {
     if (trimmed.includes('7c928fc13a5a84bb1dcadc8b198a450f')) {
