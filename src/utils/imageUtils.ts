@@ -21,6 +21,38 @@ export function getSafeImageUrl(url: string | undefined, defaultFallback = '/spl
     return resolveLocalAsset(defaultFallback);
   }
 
+  // Handle Pinterest links
+  if (trimmed.includes('pin.it') || trimmed.includes('pinimg.com') || trimmed.includes('pinterest.com')) {
+    if (trimmed.includes('7c928fc13a5a84bb1dcadc8b198a450f')) {
+      return resolveLocalAsset('/media-article-3-pin.jpg');
+    }
+    if (trimmed.includes('a8914ca9365a1f6292679be91212f5ac')) {
+      return resolveLocalAsset('/media-article-1-pin.jpg');
+    }
+    if (trimmed.includes('a681b8c57af4a4b5bc4c92d43d5e059b')) {
+      return resolveLocalAsset('/splendid-lake-dews-pin.jpg');
+    }
+    if (trimmed.includes('73d5213658a8964806583dd8bc6bcaad')) {
+      return resolveLocalAsset('/splendid-elite-pin.jpg');
+    }
+    if (trimmed.includes('15fba90ecb282ad3c85a0673e3d9506e')) {
+      return resolveLocalAsset('/splendid-plaza-pin.jpg');
+    }
+    if (trimmed.includes('fb45a92a228c1bfcf642fc281656e47e')) {
+      return resolveLocalAsset('/splendid-skywalk-pin.jpg');
+    }
+    if (trimmed.includes('5dc0b495c1e3509fb6c56ae2b784baaf') || trimmed.includes('933652566522099186')) {
+      return resolveLocalAsset('/splendid-times-pin.jpg');
+    }
+    if (trimmed.includes('9f7dd1571ef3ed72ca84e0659963d882') || trimmed.includes('933652566522099167')) {
+      return resolveLocalAsset('/splendid-skylines-pin.jpg');
+    }
+    if (trimmed.includes('8aa369db346ea347b31fb01a1281e016') || trimmed.includes('2WdKa3gxd') || trimmed.includes('lMcNZIFPh') || trimmed.includes('933652566522099214')) {
+      return resolveLocalAsset('/splendid-lake-breez-pin.jpg');
+    }
+    return resolveLocalAsset('/splendid-lake-breez-pin.jpg');
+  }
+
   // Handle Cloudinary links
   if (trimmed.includes('cloudinary.com')) {
     if (trimmed.includes('v1786628018') || trimmed.includes('9.57.58') || trimmed.includes('WhatsApp_Image_2026-08-09_at_9.57.58')) {

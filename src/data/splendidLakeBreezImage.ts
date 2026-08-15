@@ -1,6 +1,11 @@
 // High-resolution photorealistic architectural image for Splendid Lake Breez
-export const SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE = "/splendid-lake-breez-cloudinary.jpg";
+export const SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE = "https://i.pinimg.com/736x/8a/a3/69/8aa369db346ea347b31fb01a1281e016.jpg";
 export const SPLENDID_LAKE_BREEZ_GALLERY_IMAGES = [
+  "https://i.pinimg.com/736x/8a/a3/69/8aa369db346ea347b31fb01a1281e016.jpg",
+  "https://pin.it/2WdKa3gxd",
+  "https://pin.it/lMcNZIFPh",
+  "/splendid-lake-breez-pin.jpg",
+  "/splendid-lake-breez-pinterest.jpg",
   "/splendid-lake-breez-cloudinary.jpg",
   "/splendid-lake-breez-vmq.jpg",
   "/splendid-lake-breez-drive.jpg",
