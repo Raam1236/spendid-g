@@ -69,10 +69,10 @@ export const PROJECTS_DATA: Project[] = [
     gallery: [
       SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE,
       lakeBreezGalleryTwo,
-      lakeBreezGalleryThree,
-      lakeBreezGalleryFour,
-      lakeBreezGalleryFive,
-      lakeBreezGallerySix
+      '/images/projects/living-1.jpg',
+      '/images/projects/balcony-1.jpg',
+      '/images/projects/eco-garden.jpg',
+      '/images/projects/exterior-1.jpg'
     ],
     featured: true,
     coordinates: { lat: 12.879, lng: 77.625 },
@@ -145,10 +145,10 @@ export const PROJECTS_DATA: Project[] = [
     gallery: [
       splendidEliteHero,
       eliteGalleryTwo,
-      eliteGalleryThree,
-      eliteGalleryFour,
-      eliteGalleryFive,
-      eliteGallerySix
+      '/images/splendid-elite-1.jpg',
+      '/images/splendid-elite-2.jpg',
+      '/images/splendid-elite-3.jpg',
+      '/images/projects/living-1.jpg'
     ],
     featured: true,
     coordinates: { lat: 12.845, lng: 77.662 },
@@ -218,10 +218,10 @@ export const PROJECTS_DATA: Project[] = [
     gallery: [
       splendidSkywalkHero,
       skywalkGalleryTwo,
-      skylinesGalleryTwo,
-      skylinesGalleryThree,
-      eliteGalleryThree,
-      lakeBreezGalleryTwo
+      '/images/projects/balcony-1.jpg',
+      '/images/projects/eco-garden.jpg',
+      '/images/splendid-about-brand.jpg',
+      '/images/projects/exterior-1.jpg'
     ],
     featured: true,
     coordinates: { lat: 13.102, lng: 77.608 },
@@ -276,10 +276,10 @@ export const PROJECTS_DATA: Project[] = [
     gallery: [
       splendidPlazaHero,
       plazaGalleryTwo,
+      '/images/projects/commercial-1.jpg',
+      '/images/plessa.jpg',
       timesSquareGalleryTwo,
-      timesSquareGalleryThree,
-      timesSquareGalleryFour,
-      timesSquareGalleryFive
+      timesSquareGalleryThree
     ],
     featured: false,
     coordinates: { lat: 12.935, lng: 77.624 },
@@ -385,10 +385,10 @@ export const PROJECTS_DATA: Project[] = [
     gallery: [
       skylinesHero,
       skylinesGalleryTwo,
+      '/images/skylines.jpg',
+      '/images/projects/living-1.jpg',
       skylinesGalleryThree,
-      skylinesGalleryFour,
-      skylinesGalleryFive,
-      lakeDewsGalleryTwo
+      skylinesGalleryFour
     ],
     featured: false,
     coordinates: { lat: 12.908, lng: 77.698 },
@@ -439,10 +439,10 @@ export const PROJECTS_DATA: Project[] = [
     gallery: [
       lakeDewsHero,
       lakeDewsGalleryTwo,
-      lakeDewsGalleryThree,
-      lakeDewsGalleryFour,
-      lakeDewsGalleryFive,
-      lakeDewsGallerySix
+      '/images/splendid-lake-dews.jpg',
+      '/images/projects/balcony-1.jpg',
+      '/images/projects/eco-garden.jpg',
+      '/images/projects/living-1.jpg'
     ],
     featured: false,
     coordinates: { lat: 12.888, lng: 77.635 },

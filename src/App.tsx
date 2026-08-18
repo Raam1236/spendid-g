@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, useScroll, useSpring } from 'motion/react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { BrandIntro } from './components/BrandIntro';
@@ -24,6 +25,14 @@ export default function App() {
   const [enquiryProjectName, setEnquiryProjectName] = useState<string | undefined>(undefined);
   const [siteVisitProjectName, setSiteVisitProjectName] = useState<string | undefined>(undefined);
 
+  // Global scroll progress for champagne-gold top progress bar
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
   const handleOpenEnquiry = (projectName?: string) => {
     setEnquiryProjectName(projectName);
     setEnquiryModalOpen(true);
@@ -45,6 +54,13 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#FBF9F5] text-[#1C1917] font-sans selection:bg-[#C5A059] selection:text-white overflow-x-hidden">
+      {/* Slim Champagne-Gold Reading Progress Bar */}
+      <motion.div
+        id="scroll-progress-bar"
+        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#A37B2C] via-[#E8D08D] to-[#C5A059] origin-left z-50 pointer-events-none shadow-[0_1px_6px_rgba(197,160,89,0.45)]"
+        style={{ scaleX }}
+      />
+
       {/* Navigation Bar */}
       <Navbar
         onOpenEnquiry={() => handleOpenEnquiry()}
