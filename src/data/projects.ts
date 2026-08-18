@@ -6,6 +6,10 @@ import splendidSkywalkHero from '../assets/images/regenerated_image_178681049755
 import splendidPlazaHero from '../assets/images/regenerated_image_1786810718786.png';
 import skylinesHero from '../assets/images/regenerated_image_1786810833457.png';
 import lakeDewsHero from '../assets/images/regenerated_image_1786811005969.png';
+import lakeBreezGalleryTwo from '../assets/images/regenerated_image_1786986531990.png';
+import lakeBreezGalleryThree from '../assets/images/regenerated_image_1786986536502.png';
+import lakeBreezGalleryFour from '../assets/images/regenerated_image_1786986364534.png';
+import lakeBreezGalleryFive from '../assets/images/regenerated_image_1786986368755.png';
 
 export const PROJECTS_DATA: Project[] = [
   {
@@ -28,10 +32,10 @@ export const PROJECTS_DATA: Project[] = [
     heroImage: SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE,
     gallery: [
       SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE,
-      '/splendid-lake-breez-1.jpg',
-      '/images/projects/exterior-1.jpg',
-      '/images/projects/living-1.jpg',
-      '/images/projects/balcony-1.jpg'
+      lakeBreezGalleryTwo,
+      lakeBreezGalleryThree,
+      lakeBreezGalleryFour,
+      lakeBreezGalleryFive
     ],
     featured: true,
     coordinates: { lat: 12.879, lng: 77.625 },
