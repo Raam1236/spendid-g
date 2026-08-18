@@ -1,15 +1,51 @@
 import { Project } from '../types';
 import { SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE } from './splendidLakeBreezImage';
+
+// Hero Images
 import splendidTimesSquareHero from '../assets/images/regenerated_image_1786784513531.png';
 import splendidEliteHero from '../assets/images/regenerated_image_1786810371160.png';
 import splendidSkywalkHero from '../assets/images/regenerated_image_1786810497555.png';
 import splendidPlazaHero from '../assets/images/regenerated_image_1786810718786.png';
 import skylinesHero from '../assets/images/regenerated_image_1786810833457.png';
 import lakeDewsHero from '../assets/images/regenerated_image_1786811005969.png';
-import lakeBreezGalleryTwo from '../assets/images/regenerated_image_1787075174896.png';
-import lakeBreezGalleryThree from '../assets/images/regenerated_image_1787075178539.png';
-import lakeBreezGalleryFour from '../assets/images/regenerated_image_1786986364534.png';
-import lakeBreezGalleryFive from '../assets/images/regenerated_image_1787075392433.png';
+
+// Lake Breez Gallery
+import lakeBreezGalleryTwo from '../assets/images/regenerated_image_1787079127331.png';
+import lakeBreezGalleryThree from '../assets/images/regenerated_image_1787079130388.png';
+import lakeBreezGalleryFour from '../assets/images/regenerated_image_1787079133897.png';
+import lakeBreezGalleryFive from '../assets/images/regenerated_image_1787079138346.png';
+import lakeBreezGallerySix from '../assets/images/regenerated_image_1787079140596.png';
+
+// Splendid Times Square Gallery
+import timesSquareGalleryTwo from '../assets/images/regenerated_image_1786985665065.png';
+import timesSquareGalleryThree from '../assets/images/regenerated_image_1786985668577.png';
+import timesSquareGalleryFour from '../assets/images/regenerated_image_1786985984819.png';
+import timesSquareGalleryFive from '../assets/images/regenerated_image_1786986364534.png';
+import timesSquareGallerySix from '../assets/images/regenerated_image_1786986368755.png';
+
+// Splendid Elite Gallery
+import eliteGalleryTwo from '../assets/images/regenerated_image_1786811143448.png';
+import eliteGalleryThree from '../assets/images/regenerated_image_1787075174896.png';
+import eliteGalleryFour from '../assets/images/regenerated_image_1787075178539.png';
+import eliteGalleryFive from '../assets/images/regenerated_image_1787075392433.png';
+import eliteGallerySix from '../assets/images/regenerated_image_1787076463169.png';
+
+// Lake Dews Gallery
+import lakeDewsGalleryTwo from '../assets/images/regenerated_image_1787074696920.png';
+import lakeDewsGalleryThree from '../assets/images/regenerated_image_1787074700501.png';
+import lakeDewsGalleryFour from '../assets/images/regenerated_image_1787074834900.png';
+import lakeDewsGalleryFive from '../assets/images/regenerated_image_1787074838983.png';
+import lakeDewsGallerySix from '../assets/images/regenerated_image_1787074960265.png';
+
+// Skylines Gallery
+import skylinesGalleryTwo from '../assets/images/regenerated_image_1786986531990.png';
+import skylinesGalleryThree from '../assets/images/regenerated_image_1786986536502.png';
+import skylinesGalleryFour from '../assets/images/regenerated_image_1786783480079.png';
+import skylinesGalleryFive from '../assets/images/regenerated_image_1786553379611.png';
+
+// Skywalk & Plaza Gallery
+import skywalkGalleryTwo from '../assets/images/regenerated_image_1786811257864.png';
+import plazaGalleryTwo from '../assets/images/regenerated_image_1786811395409.png';
 
 export const PROJECTS_DATA: Project[] = [
   {
@@ -35,7 +71,8 @@ export const PROJECTS_DATA: Project[] = [
       lakeBreezGalleryTwo,
       lakeBreezGalleryThree,
       lakeBreezGalleryFour,
-      lakeBreezGalleryFive
+      lakeBreezGalleryFive,
+      lakeBreezGallerySix
     ],
     featured: true,
     coordinates: { lat: 12.879, lng: 77.625 },
@@ -107,13 +144,11 @@ export const PROJECTS_DATA: Project[] = [
     heroImage: splendidEliteHero,
     gallery: [
       splendidEliteHero,
-      'https://i.pinimg.com/736x/73/d5/21/73d5213658a8964806583dd8bc6bcaad.jpg',
-      '/splendid-elite-pin.jpg',
-      '/splendid-elite-cloudinary.jpg',
-      '/splendid-elite-ibb.jpg',
-      '/splendid-elite-drive-2.jpg',
-      '/splendid-elite-1.jpg',
-      '/splendid-elite-2.jpg'
+      eliteGalleryTwo,
+      eliteGalleryThree,
+      eliteGalleryFour,
+      eliteGalleryFive,
+      eliteGallerySix
     ],
     featured: true,
     coordinates: { lat: 12.845, lng: 77.662 },
@@ -182,13 +217,11 @@ export const PROJECTS_DATA: Project[] = [
     heroImage: splendidSkywalkHero,
     gallery: [
       splendidSkywalkHero,
-      'https://i.pinimg.com/736x/fb/45/a9/fb45a92a228c1bfcf642fc281656e47e.jpg',
-      '/splendid-skywalk-pin.jpg',
-      '/splendid-skywalk-cloudinary.jpg',
-      '/sky-wall.jpg',
-      '/splendid-skywalk-drive-2.jpg',
-      '/images/projects/balcony-1.jpg',
-      '/images/projects/eco-garden.jpg'
+      skywalkGalleryTwo,
+      skylinesGalleryTwo,
+      skylinesGalleryThree,
+      eliteGalleryThree,
+      lakeBreezGalleryTwo
     ],
     featured: true,
     coordinates: { lat: 13.102, lng: 77.608 },
@@ -242,13 +275,11 @@ export const PROJECTS_DATA: Project[] = [
     heroImage: splendidPlazaHero,
     gallery: [
       splendidPlazaHero,
-      'https://i.pinimg.com/736x/15/fb/a9/15fba90ecb282ad3c85a0673e3d9506e.jpg',
-      '/splendid-plaza-pin.jpg',
-      '/splendid-plaza-cloudinary.jpg',
-      '/splendid-plaza-ibb.jpg',
-      '/splendid-plaza-drive-2.jpg',
-      '/plessa.jpg',
-      '/images/projects/commercial-1.jpg'
+      plazaGalleryTwo,
+      timesSquareGalleryTwo,
+      timesSquareGalleryThree,
+      timesSquareGalleryFour,
+      timesSquareGalleryFive
     ],
     featured: false,
     coordinates: { lat: 12.935, lng: 77.624 },
@@ -299,13 +330,11 @@ export const PROJECTS_DATA: Project[] = [
     heroImage: splendidTimesSquareHero,
     gallery: [
       splendidTimesSquareHero,
-      'https://i.pinimg.com/736x/5d/c0/b4/5dc0b495c1e3509fb6c56ae2b784baaf.jpg',
-      'https://in.pinterest.com/pin/933652566522099186/',
-      '/splendid-times-pin.jpg',
-      '/splendid-times-cloudinary.jpg',
-      '/splendid-times-ibb.jpg',
-      '/splendid-times-drive-2.jpg',
-      '/splendid-times.jpg'
+      timesSquareGalleryTwo,
+      timesSquareGalleryThree,
+      timesSquareGalleryFour,
+      timesSquareGalleryFive,
+      timesSquareGallerySix
     ],
     featured: false,
     coordinates: { lat: 12.911, lng: 77.685 },
@@ -355,13 +384,11 @@ export const PROJECTS_DATA: Project[] = [
     heroImage: skylinesHero,
     gallery: [
       skylinesHero,
-      'https://i.pinimg.com/736x/9f/7d/d1/9f7dd1571ef3ed72ca84e0659963d882.jpg',
-      'https://in.pinterest.com/pin/933652566522099167/',
-      '/splendid-skylines-pin.jpg',
-      '/splendid-skylines-cloudinary.jpg',
-      '/splendid-skylines-ibb.jpg',
-      '/splendid-skylines-drive-2.jpg',
-      '/splendid-skyline.jpg'
+      skylinesGalleryTwo,
+      skylinesGalleryThree,
+      skylinesGalleryFour,
+      skylinesGalleryFive,
+      lakeDewsGalleryTwo
     ],
     featured: false,
     coordinates: { lat: 12.908, lng: 77.698 },
@@ -411,11 +438,11 @@ export const PROJECTS_DATA: Project[] = [
     heroImage: lakeDewsHero,
     gallery: [
       lakeDewsHero,
-      'https://i.pinimg.com/736x/a6/81/b8/a681b8c57af4a4b5bc4c92d43d5e059b.jpg',
-      '/splendid-lake-dews-pin.jpg',
-      '/splendid-lake-dews-cloudinary.jpg',
-      '/splendid-lake-dews-ibb.jpg',
-      '/splendid-lake-dews-drive-2.jpg'
+      lakeDewsGalleryTwo,
+      lakeDewsGalleryThree,
+      lakeDewsGalleryFour,
+      lakeDewsGalleryFive,
+      lakeDewsGallerySix
     ],
     featured: false,
     coordinates: { lat: 12.888, lng: 77.635 },
