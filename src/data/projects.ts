@@ -6,10 +6,10 @@ import splendidSkywalkHero from '../assets/images/regenerated_image_178681049755
 import splendidPlazaHero from '../assets/images/regenerated_image_1786810718786.png';
 import skylinesHero from '../assets/images/regenerated_image_1786810833457.png';
 import lakeDewsHero from '../assets/images/regenerated_image_1786811005969.png';
-import lakeBreezGalleryTwo from '../assets/images/regenerated_image_1787074960265.png';
-import lakeBreezGalleryThree from '../assets/images/regenerated_image_1787074838983.png';
+import lakeBreezGalleryTwo from '../assets/images/regenerated_image_1787075174896.png';
+import lakeBreezGalleryThree from '../assets/images/regenerated_image_1787075178539.png';
 import lakeBreezGalleryFour from '../assets/images/regenerated_image_1786986364534.png';
-import lakeBreezGalleryFive from '../assets/images/regenerated_image_1786986368755.png';
+import lakeBreezGalleryFive from '../assets/images/regenerated_image_1787075392433.png';
 
 export const PROJECTS_DATA: Project[] = [
   {
