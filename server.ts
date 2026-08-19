@@ -122,17 +122,28 @@ async function startServer() {
   // 4. SECURITY HEADERS MIDDLEWARE
   // ==========================================
   app.use((_req: Request, res: Response, next: NextFunction) => {
+    // 1. X-Content-Type-Options: Prevent MIME-type sniffing
     res.setHeader('X-Content-Type-Options', 'nosniff');
-    res.setHeader('X-XSS-Protection', '1; mode=block');
-    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-    res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=()');
-    
-    // Strict Transport Security for HTTPS environments
-    if (process.env.NODE_ENV === 'production') {
-      res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
-    }
 
-    // Content Security Policy - allowing Google Fonts, Cloud Run previews, safe assets
+    // 2. X-Frame-Options: Clickjacking protection
+    res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+
+    // 3. Referrer-Policy: Control referrer information sent on requests
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+
+    // 4. Permissions-Policy: Restrict browser features & APIs
+    res.setHeader(
+      'Permissions-Policy',
+      'camera=(), microphone=(), geolocation=(), payment=(), usb=(), screen-wake-lock=(), accelerometer=(), gyroscope=(), magnetometer=()'
+    );
+
+    // 5. Strict-Transport-Security (HSTS): Force HTTPS
+    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+
+    // Additional XSS Filter header
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+
+    // 6. Content-Security-Policy (CSP): Restrict content, scripts, styles, fonts, frames
     const cspDirectives = [
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
