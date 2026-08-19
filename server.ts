@@ -126,16 +126,13 @@ async function startServer() {
     res.setHeader('X-Content-Type-Options', 'nosniff');
 
     // 2. X-Frame-Options: Clickjacking protection
-    res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+    res.setHeader('X-Frame-Options', 'DENY');
 
     // 3. Referrer-Policy: Control referrer information sent on requests
     res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
 
     // 4. Permissions-Policy: Restrict browser features & APIs
-    res.setHeader(
-      'Permissions-Policy',
-      'camera=(), microphone=(), geolocation=(), payment=(), usb=(), screen-wake-lock=(), accelerometer=(), gyroscope=(), magnetometer=()'
-    );
+    res.setHeader('Permissions-Policy', 'accelerometer=(), camera=(), geolocation=(), microphone=()');
 
     // 5. Strict-Transport-Security (HSTS): Force HTTPS
     res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
