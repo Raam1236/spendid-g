@@ -31,19 +31,31 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.fullName.trim() || !formData.phone.trim() || !formData.email.trim()) {
+      return;
+    }
     setIsSubmitting(true);
+
+    const cleanData: EnquiryFormData = {
+      fullName: formData.fullName.trim().slice(0, 80),
+      phone: formData.phone.trim().slice(0, 25),
+      email: formData.email.trim().slice(0, 120),
+      projectInterest: formData.projectInterest.trim().slice(0, 100),
+      budgetRange: formData.budgetRange.trim().slice(0, 50),
+      message: (formData.message || '').trim().slice(0, 500)
+    };
 
     const refId = `SPL-${Math.floor(100000 + Math.random() * 900000)}`;
 
     const waMessage = `📋 *NEW PROPERTY ENQUIRY*
 ---------------------------------------
-👤 *Visitor Name:* ${formData.fullName}
-📞 *Phone:* ${formData.phone}
-✉️ *Email:* ${formData.email}
+👤 *Visitor Name:* ${cleanData.fullName}
+📞 *Phone:* ${cleanData.phone}
+✉️ *Email:* ${cleanData.email}
 
-🏢 *Project Interest:* ${formData.projectInterest}
-💰 *Budget Range:* ${formData.budgetRange}
-${formData.message ? `📝 *Message/Query:* ${formData.message}\n` : ''}
+🏢 *Project Interest:* ${cleanData.projectInterest}
+💰 *Budget Range:* ${cleanData.budgetRange}
+${cleanData.message ? `📝 *Message/Query:* ${cleanData.message}\n` : ''}
 🔖 *Reference ID:* ${refId}
 ---------------------------------------
 _Sent via Splendid Group Website Portal_`;
@@ -55,13 +67,13 @@ _Sent via Splendid Group Website Portal_`;
     setSubmittedRef(refId);
 
     // Automatically open WhatsApp with pre-filled enquiry details addressed to owner
-    window.open(whatsappLink, '_blank');
+    window.open(whatsappLink, '_blank', 'noopener,noreferrer');
 
     try {
       await fetch('/api/enquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, refId })
+        body: JSON.stringify({ ...cleanData, refId })
       });
     } catch (err) {
       console.error('API submission log:', err);

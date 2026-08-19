@@ -24,21 +24,34 @@ export const SiteVisitSection: React.FC<SiteVisitSectionProps> = ({ preselectedP
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.fullName.trim() || !formData.phone.trim() || !formData.email.trim()) {
+      return;
+    }
     setIsSubmitting(true);
+
+    const cleanData: SiteVisitFormData = {
+      fullName: formData.fullName.trim().slice(0, 80),
+      phone: formData.phone.trim().slice(0, 25),
+      email: formData.email.trim().slice(0, 120),
+      project: formData.project.trim().slice(0, 100),
+      preferredDate: formData.preferredDate.trim().slice(0, 30),
+      preferredTime: formData.preferredTime.trim().slice(0, 30),
+      message: (formData.message || '').trim().slice(0, 500)
+    };
 
     const bookingId = `VISIT-${Math.floor(100000 + Math.random() * 900000)}`;
 
     // Formatted WhatsApp message for the owner (+91 99000 41880)
     const waMessage = `🏛️ *NEW PRIVATE SITE VISIT BOOKING*
 ---------------------------------------
-👤 *Visitor Name:* ${formData.fullName}
-📞 *Phone:* ${formData.phone}
-✉️ *Email:* ${formData.email}
+👤 *Visitor Name:* ${cleanData.fullName}
+📞 *Phone:* ${cleanData.phone}
+✉️ *Email:* ${cleanData.email}
 
-🏢 *Project:* ${formData.project}
-📅 *Preferred Date:* ${formData.preferredDate || 'To be finalized'}
-⏰ *Time Slot:* ${formData.preferredTime}
-${formData.message ? `📝 *Notes/Requests:* ${formData.message}\n` : ''}
+🏢 *Project:* ${cleanData.project}
+📅 *Preferred Date:* ${cleanData.preferredDate || 'To be finalized'}
+⏰ *Time Slot:* ${cleanData.preferredTime}
+${cleanData.message ? `📝 *Notes/Requests:* ${cleanData.message}\n` : ''}
 🔖 *Booking Ref ID:* ${bookingId}
 ---------------------------------------
 _Sent via Splendid Group Private Site Visit Portal_`;
@@ -50,13 +63,13 @@ _Sent via Splendid Group Private Site Visit Portal_`;
     setSubmittedBookingId(bookingId);
 
     // Automatically open WhatsApp with pre-filled visitor details addressed to owner
-    window.open(whatsappLink, '_blank');
+    window.open(whatsappLink, '_blank', 'noopener,noreferrer');
 
     try {
       await fetch('/api/site-visit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, bookingId })
+        body: JSON.stringify({ ...cleanData, bookingId })
       });
     } catch (err) {
       console.error('API submission log:', err);

@@ -43,8 +43,9 @@ export const ConciergeDrawer: React.FC<ConciergeDrawerProps> = ({
   }, [messages, isTyping]);
 
   const handleSendMessage = async (textToSend?: string) => {
-    const query = textToSend || inputText;
-    if (!query.trim()) return;
+    const rawQuery = textToSend || inputText;
+    const query = rawQuery.trim().slice(0, 450);
+    if (!query) return;
 
     const userMsg: ChatMessage = {
       id: Date.now().toString(),
@@ -63,7 +64,7 @@ export const ConciergeDrawer: React.FC<ConciergeDrawerProps> = ({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           message: query,
-          conversationHistory: messages
+          conversationHistory: messages.slice(-6)
         })
       });
 
@@ -193,6 +194,7 @@ export const ConciergeDrawer: React.FC<ConciergeDrawerProps> = ({
           >
             <input
               type="text"
+              maxLength={450}
               placeholder="Ask about Lake Breez, Skywalk, floor plans, RERA..."
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}

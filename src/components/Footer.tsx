@@ -20,18 +20,23 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnquiry }) => {
 
   const handleRgSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!rgForm.name.trim() || !rgForm.phone.trim() || !rgForm.email.trim()) {
+    const cleanName = rgForm.name.trim().slice(0, 80);
+    const cleanPhone = rgForm.phone.trim().slice(0, 25);
+    const cleanEmail = rgForm.email.trim().slice(0, 120);
+    const cleanMessage = (rgForm.message || '').trim().slice(0, 500);
+
+    if (!cleanName || !cleanPhone || !cleanEmail) {
       return;
     }
 
     const whatsappMessage = `*New Website Enquiry - RG WEBCRAFT*\n\n` +
-      `*Name:* ${rgForm.name.trim()}\n` +
-      `*Contact Number:* ${rgForm.phone.trim()}\n` +
-      `*Email ID:* ${rgForm.email.trim()}` +
-      (rgForm.message.trim() ? `\n*Message:* ${rgForm.message.trim()}` : '');
+      `*Name:* ${cleanName}\n` +
+      `*Contact Number:* ${cleanPhone}\n` +
+      `*Email ID:* ${cleanEmail}` +
+      (cleanMessage ? `\n*Message:* ${cleanMessage}` : '');
 
     const whatsappUrl = `https://wa.me/916361380854?text=${encodeURIComponent(whatsappMessage)}`;
-    window.open(whatsappUrl, '_blank');
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     setRgSubmitted(true);
   };
 
