@@ -11,7 +11,7 @@ import lakeDewsHero from '../assets/images/regenerated_image_1786811005969.png';
 
 // Lake Breez Gallery
 import lakeBreezGalleryTwo from '../assets/images/regenerated_image_1787079127331.png';
-import lakeBreezGalleryThree from '../assets/images/regenerated_image_1787079130388.png';
+import lakeBreezGalleryThree from '../assets/images/regenerated_image_1787330551780.png';
 import lakeBreezGalleryFour from '../assets/images/regenerated_image_1787079133897.png';
 import lakeBreezGalleryFive from '../assets/images/regenerated_image_1787079138346.png';
 import lakeBreezGallerySix from '../assets/images/regenerated_image_1787079140596.png';
@@ -69,10 +69,10 @@ export const PROJECTS_DATA: Project[] = [
     gallery: [
       SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE,
       lakeBreezGalleryTwo,
-      '/images/projects/living-1.jpg',
-      '/images/projects/balcony-1.jpg',
-      '/images/projects/eco-garden.jpg',
-      '/images/projects/exterior-1.jpg'
+      lakeBreezGalleryThree,
+      lakeBreezGalleryFour,
+      lakeBreezGalleryFive,
+      lakeBreezGallerySix
     ],
     featured: true,
     coordinates: { lat: 12.879, lng: 77.625 },
@@ -145,10 +145,10 @@ export const PROJECTS_DATA: Project[] = [
     gallery: [
       splendidEliteHero,
       eliteGalleryTwo,
-      '/images/splendid-elite-1.jpg',
-      '/images/splendid-elite-2.jpg',
-      '/images/splendid-elite-3.jpg',
-      '/images/projects/living-1.jpg'
+      eliteGalleryThree,
+      eliteGalleryFour,
+      eliteGalleryFive,
+      eliteGallerySix
     ],
     featured: true,
     coordinates: { lat: 12.845, lng: 77.662 },
@@ -439,10 +439,10 @@ export const PROJECTS_DATA: Project[] = [
     gallery: [
       lakeDewsHero,
       lakeDewsGalleryTwo,
-      '/images/splendid-lake-dews.jpg',
-      '/images/projects/balcony-1.jpg',
-      '/images/projects/eco-garden.jpg',
-      '/images/projects/living-1.jpg'
+      lakeDewsGalleryThree,
+      lakeDewsGalleryFour,
+      lakeDewsGalleryFive,
+      lakeDewsGallerySix
     ],
     featured: false,
     coordinates: { lat: 12.888, lng: 77.635 },
