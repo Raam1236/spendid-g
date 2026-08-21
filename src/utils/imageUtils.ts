@@ -16,9 +16,20 @@ export function getSafeImageUrl(url: string | undefined, defaultFallback = '/spl
   if (!url || typeof url !== 'string') {
     return resolveLocalAsset(defaultFallback);
   }
-  const trimmed = url.trim();
+  let trimmed = url.trim();
   if (!trimmed) {
     return resolveLocalAsset(defaultFallback);
+  }
+
+  // Normalize /images/projects/ or /images/ to root public directory
+  if (trimmed.startsWith('/images/projects/')) {
+    trimmed = '/' + trimmed.slice('/images/projects/'.length);
+  } else if (trimmed.startsWith('/images/')) {
+    trimmed = '/' + trimmed.slice('/images/'.length);
+  } else if (trimmed.startsWith('images/projects/')) {
+    trimmed = '/' + trimmed.slice('images/projects/'.length);
+  } else if (trimmed.startsWith('images/')) {
+    trimmed = '/' + trimmed.slice('images/'.length);
   }
 
   // Preserve Vite bundled assets, data URLs, blob URLs, and regenerated image assets directly

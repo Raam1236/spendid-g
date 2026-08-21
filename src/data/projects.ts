@@ -218,10 +218,10 @@ export const PROJECTS_DATA: Project[] = [
     gallery: [
       splendidSkywalkHero,
       skywalkGalleryTwo,
-      '/images/projects/balcony-1.jpg',
-      '/images/projects/eco-garden.jpg',
-      '/images/splendid-about-brand.jpg',
-      '/images/projects/exterior-1.jpg'
+      '/balcony-1.jpg',
+      '/eco-garden.jpg',
+      '/splendid-about-brand.jpg',
+      '/exterior-1.jpg'
     ],
     featured: true,
     coordinates: { lat: 13.102, lng: 77.608 },
@@ -276,8 +276,8 @@ export const PROJECTS_DATA: Project[] = [
     gallery: [
       splendidPlazaHero,
       plazaGalleryTwo,
-      '/images/projects/commercial-1.jpg',
-      '/images/plessa.jpg',
+      '/commercial-1.jpg',
+      '/plessa.jpg',
       timesSquareGalleryTwo,
       timesSquareGalleryThree
     ],
@@ -385,8 +385,8 @@ export const PROJECTS_DATA: Project[] = [
     gallery: [
       skylinesHero,
       skylinesGalleryTwo,
-      '/images/skylines.jpg',
-      '/images/projects/living-1.jpg',
+      '/skylines.jpg',
+      '/living-1.jpg',
       skylinesGalleryThree,
       skylinesGalleryFour
     ],
