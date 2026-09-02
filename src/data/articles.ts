@@ -1,7 +1,7 @@
-import { Article } from '../types';
-import articleOneHero from '../assets/images/regenerated_image_1786811143448.png';
-import articleTwoHero from '../assets/images/regenerated_image_1786811257864.png';
-import articleThreeHero from '../assets/images/regenerated_image_1786811395409.png';
+import { Article } from '@/types';
+import articleOneHero from '@/assets/images/regenerated_image_1786811143448.png';
+import articleTwoHero from '@/assets/images/regenerated_image_1786811257864.png';
+import articleThreeHero from '@/assets/images/regenerated_image_1786811395409.png';
 
 export const ARTICLES_DATA: Article[] = [
   {

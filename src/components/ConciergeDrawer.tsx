@@ -1,12 +1,26 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChatMessage } from '../types';
 import { Sparkles, X, Send, Bot, User, ArrowRight } from 'lucide-react';
+import { stripControlChars, SafeStorage, clientCsrf } from '../utils/security';
 
 interface ConciergeDrawerProps {
   isOpen: boolean;
   onClose: () => void;
   onOpenSiteVisit: (projectName?: string) => void;
 }
+
+const DEFAULT_WELCOME: ChatMessage = {
+  id: 'welcome',
+  sender: 'assistant',
+  text: 'Greetings. I am the Splendid AI Concierge. How may I assist your real estate inquiry regarding our developments in Begur, Electronics City, Yelahanka, or Sarjapur Road today?',
+  timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+  suggestions: [
+    'Tell me about Splendid Lake Breez in Begur',
+    'Which projects are near Electronics City?',
+    'What are the RERA numbers and starting prices?',
+    'How do I schedule a site visit with pickup?'
+  ]
+};
 
 export const ConciergeDrawer: React.FC<ConciergeDrawerProps> = ({
   isOpen,
@@ -15,20 +29,9 @@ export const ConciergeDrawer: React.FC<ConciergeDrawerProps> = ({
 }) => {
   if (!isOpen) return null;
 
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      id: 'welcome',
-      sender: 'assistant',
-      text: 'Greetings. I am the Splendid AI Concierge. How may I assist your real estate inquiry regarding our developments in Begur, Electronics City, Yelahanka, or Sarjapur Road today?',
-      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-      suggestions: [
-        'Tell me about Splendid Lake Breez in Begur',
-        'Which projects are near Electronics City?',
-        'What are the RERA numbers and starting prices?',
-        'How do I schedule a site visit with pickup?'
-      ]
-    }
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>(() => {
+    return SafeStorage.getItem<ChatMessage[]>('splendid_chat_session', [DEFAULT_WELCOME]);
+  });
 
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -42,15 +45,19 @@ export const ConciergeDrawer: React.FC<ConciergeDrawerProps> = ({
     scrollToBottom();
   }, [messages, isTyping]);
 
+  useEffect(() => {
+    SafeStorage.setItem('splendid_chat_session', messages.slice(-10));
+  }, [messages]);
+
   const handleSendMessage = async (textToSend?: string) => {
     const rawQuery = textToSend || inputText;
-    const query = rawQuery.trim().slice(0, 450);
-    if (!query) return;
+    const cleanInput = stripControlChars(rawQuery || '').slice(0, 450);
+    if (!cleanInput) return;
 
     const userMsg: ChatMessage = {
       id: Date.now().toString(),
       sender: 'user',
-      text: query,
+      text: cleanInput,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     };
 
@@ -59,12 +66,14 @@ export const ConciergeDrawer: React.FC<ConciergeDrawerProps> = ({
     setIsTyping(true);
 
     try {
+      const csrfToken = clientCsrf.getToken();
       const res = await fetch('/api/concierge', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          message: query,
-          conversationHistory: messages.slice(-6)
+          message: cleanInput,
+          conversationHistory: messages.slice(-6),
+          csrfToken
         })
       });
 

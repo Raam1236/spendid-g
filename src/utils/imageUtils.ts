@@ -10,7 +10,21 @@ export function extractGoogleDriveFileId(url: string): string | null {
 }
 
 /**
- * Format image URL to ensure proper local asset paths and safe URI encoding on Netlify
+ * Architectural SVG fallback data URI that is 100% guaranteed to load without network dependency
+ */
+export const ARCHITECTURAL_FALLBACK_SVG = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(`
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="#141311">
+  <rect width="800" height="600" fill="#141311"/>
+  <rect x="30" y="30" width="740" height="540" stroke="#C5A059" stroke-width="1" stroke-opacity="0.3" fill="none"/>
+  <circle cx="400" cy="270" r="44" fill="#C5A059" fill-opacity="0.1" stroke="#C5A059" stroke-width="1.5"/>
+  <path d="M400 244 L422 284 L378 284 Z" fill="#C5A059"/>
+  <text x="400" y="350" font-family="'Georgia', serif" font-size="22" font-style="italic" fill="#FAF8F5" text-anchor="middle">Splendid Group</text>
+  <text x="400" y="380" font-family="sans-serif" font-size="11" font-weight="600" letter-spacing="3" fill="#C5A059" text-anchor="middle">ARCHITECTURAL PREVIEW</text>
+</svg>
+`)}`;
+
+/**
+ * Format image URL to ensure proper local asset paths and safe URI encoding
  */
 export function getSafeImageUrl(url: string | undefined, defaultFallback = '/splendid-lake-breez-1.jpg'): string {
   if (!url || typeof url !== 'string') {
@@ -19,6 +33,20 @@ export function getSafeImageUrl(url: string | undefined, defaultFallback = '/spl
   let trimmed = url.trim();
   if (!trimmed) {
     return resolveLocalAsset(defaultFallback);
+  }
+
+  // Preserve Vite bundled assets, data URLs, blob URLs, and imported image assets directly
+  if (
+    trimmed.startsWith('data:') ||
+    trimmed.startsWith('blob:') ||
+    trimmed.startsWith('/assets/') ||
+    trimmed.startsWith('assets/') ||
+    trimmed.startsWith('/@') ||
+    trimmed.startsWith('/src/assets/') ||
+    trimmed.startsWith('src/assets/') ||
+    trimmed.includes('regenerated_image')
+  ) {
+    return trimmed.startsWith('assets/') ? resolveLocalAsset('/' + trimmed) : trimmed;
   }
 
   // Normalize /images/projects/ or /images/ to root public directory
@@ -30,11 +58,6 @@ export function getSafeImageUrl(url: string | undefined, defaultFallback = '/spl
     trimmed = '/' + trimmed.slice('images/projects/'.length);
   } else if (trimmed.startsWith('images/')) {
     trimmed = '/' + trimmed.slice('images/'.length);
-  }
-
-  // Preserve Vite bundled assets, data URLs, blob URLs, and regenerated image assets directly
-  if (trimmed.startsWith('data:') || trimmed.startsWith('blob:') || trimmed.startsWith('/assets/') || trimmed.startsWith('/@') || trimmed.includes('regenerated_image')) {
-    return trimmed;
   }
 
   // Handle Pinterest links
@@ -181,15 +204,15 @@ function resolveLocalAsset(pathStr: string): string {
   const cleanPath = pathStr.startsWith('/') ? pathStr : '/' + pathStr;
   
   if (baseUrl === '/' || baseUrl === './') {
-    return encodeURI(cleanPath);
+    return cleanPath;
   }
   
   const formattedBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
-  return encodeURI(`${formattedBase}${cleanPath}`);
+  return `${formattedBase}${cleanPath}`;
 }
 
 /**
- * Reliable image error handler to prevent broken image icons
+ * Reliable image error handler to prevent broken image icons on Netlify and AI Studio
  */
 export function handleImageError(
   e: React.SyntheticEvent<HTMLImageElement, Event>,
@@ -197,26 +220,33 @@ export function handleImageError(
 ) {
   const target = e.currentTarget;
   const currentSrc = target.src || '';
+  const step = parseInt(target.dataset.triedFallback || '0', 10);
 
-  if (!target.dataset.triedFallback) {
+  if (step === 0) {
     target.dataset.triedFallback = '1';
     const fileId = extractGoogleDriveFileId(currentSrc);
     if (fileId) {
       target.src = `https://lh3.googleusercontent.com/d/${fileId}=w1600`;
       return;
     }
-    target.src = getSafeImageUrl(fallback);
-  } else if (target.dataset.triedFallback === '1') {
-    target.dataset.triedFallback = '2';
-    const fileId = extractGoogleDriveFileId(currentSrc);
-    if (fileId) {
-      target.src = `https://drive.google.com/uc?export=view&id=${fileId}`;
-      return;
+    // Try root image path if /images/ was in path
+    if (currentSrc.includes('/images/')) {
+      const rootCandidate = currentSrc.replace('/images/projects/', '/').replace('/images/', '/');
+      if (rootCandidate !== currentSrc) {
+        target.src = rootCandidate;
+        return;
+      }
     }
     target.src = getSafeImageUrl(fallback);
-  } else if (target.dataset.triedFallback === '2') {
+  } else if (step === 1) {
+    target.dataset.triedFallback = '2';
+    target.src = getSafeImageUrl('/splendid-lake-breez-1.jpg');
+  } else if (step === 2) {
     target.dataset.triedFallback = '3';
-    target.src = getSafeImageUrl(fallback);
+    target.src = getSafeImageUrl('/splendid-elite-1.jpg');
+  } else if (step >= 3) {
+    target.dataset.triedFallback = '4';
+    target.src = ARCHITECTURAL_FALLBACK_SVG;
   }
 }
 

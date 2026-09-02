@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { EnquiryFormData } from '../types';
 import { PROJECTS_DATA } from '../data/projects';
 import { X, Send, CheckCircle2, ShieldCheck, Phone, MessageSquare } from 'lucide-react';
+import { validateEnquiryPayload, sanitizeSafeUrl, clientCsrf } from '../utils/security';
 
 interface EnquiryModalProps {
   isOpen: boolean;
@@ -31,20 +32,15 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.fullName.trim() || !formData.phone.trim() || !formData.email.trim()) {
+    
+    // Phase 2 & 3: Runtime Schema validation & Sanitization
+    const validation = validateEnquiryPayload(formData as unknown as Record<string, unknown>);
+    if (!validation.isValid || !validation.value) {
       return;
     }
+    
     setIsSubmitting(true);
-
-    const cleanData: EnquiryFormData = {
-      fullName: formData.fullName.trim().slice(0, 80),
-      phone: formData.phone.trim().slice(0, 25),
-      email: formData.email.trim().slice(0, 120),
-      projectInterest: formData.projectInterest.trim().slice(0, 100),
-      budgetRange: formData.budgetRange.trim().slice(0, 50),
-      message: (formData.message || '').trim().slice(0, 500)
-    };
-
+    const cleanData = validation.value;
     const refId = `SPL-${Math.floor(100000 + Math.random() * 900000)}`;
 
     const waMessage = `📋 *NEW PROPERTY ENQUIRY*
@@ -61,7 +57,8 @@ ${cleanData.message ? `📝 *Message/Query:* ${cleanData.message}\n` : ''}
 _Sent via Splendid Group Website Portal_`;
 
     const ownerPhone = '919900041880';
-    const whatsappLink = `https://wa.me/${ownerPhone}?text=${encodeURIComponent(waMessage)}`;
+    const rawWaLink = `https://wa.me/${ownerPhone}?text=${encodeURIComponent(waMessage)}`;
+    const whatsappLink = sanitizeSafeUrl(rawWaLink);
 
     setWaUrl(whatsappLink);
     setSubmittedRef(refId);
@@ -70,10 +67,11 @@ _Sent via Splendid Group Website Portal_`;
     window.open(whatsappLink, '_blank', 'noopener,noreferrer');
 
     try {
+      const csrfToken = clientCsrf.getToken();
       await fetch('/api/enquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...cleanData, refId })
+        body: JSON.stringify({ ...cleanData, refId, csrfToken })
       });
     } catch (err) {
       console.error('API submission log:', err);

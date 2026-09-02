@@ -1,51 +1,111 @@
-import { Project } from '../types';
-import { SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE } from './splendidLakeBreezImage';
+import { Project } from '@/types';
+import { SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE } from '@/data/splendidLakeBreezImage';
 
 // Hero Images
-import splendidTimesSquareHero from '../assets/images/regenerated_image_1786784513531.png';
-import splendidEliteHero from '../assets/images/regenerated_image_1786810371160.png';
-import splendidSkywalkHero from '../assets/images/regenerated_image_1786810497555.png';
-import splendidPlazaHero from '../assets/images/regenerated_image_1786810718786.png';
-import skylinesHero from '../assets/images/regenerated_image_1786810833457.png';
-import lakeDewsHero from '../assets/images/regenerated_image_1786811005969.png';
+import splendidTimesSquareHero from '@/assets/images/regenerated_image_1786784513531.png';
+import splendidEliteHero from '@/assets/images/regenerated_image_1786810371160.png';
+import splendidSkywalkHero from '@/assets/images/regenerated_image_1786810497555.png';
+import splendidPlazaHero from '@/assets/images/regenerated_image_1786810718786.png';
+import skylinesHero from '@/assets/images/regenerated_image_1786810833457.png';
+import lakeDewsHero from '@/assets/images/regenerated_image_1786811005969.png';
 
 // Lake Breez Gallery
-import lakeBreezGalleryTwo from '../assets/images/regenerated_image_1787079127331.png';
-import lakeBreezGalleryThree from '../assets/images/regenerated_image_1787330551780.png';
-import lakeBreezGalleryFour from '../assets/images/regenerated_image_1787079133897.png';
-import lakeBreezGalleryFive from '../assets/images/regenerated_image_1787079138346.png';
-import lakeBreezGallerySix from '../assets/images/regenerated_image_1787079140596.png';
+import lakeBreezGalleryTwo from '@/assets/images/regenerated_image_1787079127331.png';
+import lakeBreezGalleryThree from '@/assets/images/regenerated_image_1787330551780.png';
+import lakeBreezGalleryFour from '@/assets/images/regenerated_image_1787079133897.png';
+import lakeBreezGalleryFive from '@/assets/images/regenerated_image_1787079138346.png';
+import lakeBreezGallerySix from '@/assets/images/regenerated_image_1787079140596.png';
 
-// Splendid Times Square Gallery
-import timesSquareGalleryTwo from '../assets/images/regenerated_image_1786985665065.png';
-import timesSquareGalleryThree from '../assets/images/regenerated_image_1786985668577.png';
-import timesSquareGalleryFour from '../assets/images/regenerated_image_1786985984819.png';
-import timesSquareGalleryFive from '../assets/images/regenerated_image_1786986364534.png';
-import timesSquareGallerySix from '../assets/images/regenerated_image_1786986368755.png';
+// Splendid Times Square & Unified Project Gallery
+import timesSquareGalleryTwo from '@/assets/images/regenerated_image_1786985665065.png';
+import timesSquareGalleryThree from '@/assets/images/regenerated_image_1786985668577.png';
+import timesSquareGalleryFour from '@/assets/images/regenerated_image_1786985984819.png';
+import timesSquareGalleryFive from '@/assets/images/regenerated_image_1786986364534.png';
+import timesSquareGallerySix from '@/assets/images/regenerated_image_1786986368755.png';
+
+export const UNIFIED_PROJECT_GALLERY: string[] = [
+  splendidTimesSquareHero,
+  timesSquareGalleryTwo,
+  timesSquareGalleryThree,
+  timesSquareGalleryFour,
+  timesSquareGalleryFive,
+  timesSquareGallerySix
+];
+
+export const LAKE_BREEZ_GALLERY: string[] = [
+  SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE,
+  lakeBreezGalleryTwo,
+  lakeBreezGalleryThree,
+  lakeBreezGalleryFour,
+  lakeBreezGalleryFive,
+  lakeBreezGallerySix
+];
 
 // Splendid Elite Gallery
-import eliteGalleryTwo from '../assets/images/regenerated_image_1786811143448.png';
-import eliteGalleryThree from '../assets/images/regenerated_image_1787075174896.png';
-import eliteGalleryFour from '../assets/images/regenerated_image_1787075178539.png';
-import eliteGalleryFive from '../assets/images/regenerated_image_1787075392433.png';
-import eliteGallerySix from '../assets/images/regenerated_image_1787076463169.png';
+import eliteGalleryTwo from '@/assets/images/regenerated_image_1786811143448.png';
+import eliteGalleryThree from '@/assets/images/regenerated_image_1787075174896.png';
+import eliteGalleryFour from '@/assets/images/regenerated_image_1787075178539.png';
+import eliteGalleryFive from '@/assets/images/regenerated_image_1787075392433.png';
+import eliteGallerySix from '@/assets/images/regenerated_image_1787076463169.png';
+
+export const SPLENDID_ELITE_GALLERY: string[] = [
+  splendidEliteHero,
+  eliteGalleryTwo,
+  eliteGalleryThree,
+  eliteGalleryFour,
+  eliteGalleryFive,
+  eliteGallerySix
+];
 
 // Lake Dews Gallery
-import lakeDewsGalleryTwo from '../assets/images/regenerated_image_1787074696920.png';
-import lakeDewsGalleryThree from '../assets/images/regenerated_image_1787074700501.png';
-import lakeDewsGalleryFour from '../assets/images/regenerated_image_1787074834900.png';
-import lakeDewsGalleryFive from '../assets/images/regenerated_image_1787074838983.png';
-import lakeDewsGallerySix from '../assets/images/regenerated_image_1787074960265.png';
+import lakeDewsGalleryTwo from '@/assets/images/regenerated_image_1787074696920.png';
+import lakeDewsGalleryThree from '@/assets/images/regenerated_image_1787074700501.png';
+import lakeDewsGalleryFour from '@/assets/images/regenerated_image_1787074834900.png';
+import lakeDewsGalleryFive from '@/assets/images/regenerated_image_1787074838983.png';
+import lakeDewsGallerySix from '@/assets/images/regenerated_image_1787074960265.png';
+
+export const LAKE_DEWS_GALLERY: string[] = [
+  lakeDewsHero,
+  lakeDewsGalleryTwo,
+  lakeDewsGalleryThree,
+  lakeDewsGalleryFour,
+  lakeDewsGalleryFive,
+  lakeDewsGallerySix
+];
 
 // Skylines Gallery
-import skylinesGalleryTwo from '../assets/images/regenerated_image_1786986531990.png';
-import skylinesGalleryThree from '../assets/images/regenerated_image_1786986536502.png';
-import skylinesGalleryFour from '../assets/images/regenerated_image_1786783480079.png';
-import skylinesGalleryFive from '../assets/images/regenerated_image_1786553379611.png';
+import skylinesGalleryTwo from '@/assets/images/regenerated_image_1786986531990.png';
+import skylinesGalleryThree from '@/assets/images/regenerated_image_1786986536502.png';
+import skylinesGalleryFour from '@/assets/images/regenerated_image_1786783480079.png';
+import skylinesGalleryFive from '@/assets/images/regenerated_image_1786553379611.png';
+
+export const SKYLINES_GALLERY: string[] = [
+  skylinesHero,
+  skylinesGalleryTwo,
+  skylinesGalleryThree,
+  skylinesGalleryFour,
+  skylinesGalleryFive
+];
 
 // Skywalk & Plaza Gallery
-import skywalkGalleryTwo from '../assets/images/regenerated_image_1786811257864.png';
-import plazaGalleryTwo from '../assets/images/regenerated_image_1786811395409.png';
+import skywalkGalleryTwo from '@/assets/images/regenerated_image_1786811257864.png';
+import plazaGalleryTwo from '@/assets/images/regenerated_image_1786811395409.png';
+
+export const SKYWALK_GALLERY: string[] = [
+  splendidSkywalkHero,
+  skywalkGalleryTwo,
+  timesSquareGalleryThree,
+  timesSquareGalleryFour,
+  timesSquareGalleryFive
+];
+
+export const PLAZA_GALLERY: string[] = [
+  splendidPlazaHero,
+  plazaGalleryTwo,
+  timesSquareGalleryTwo,
+  timesSquareGalleryThree,
+  timesSquareGalleryFour
+];
 
 export const PROJECTS_DATA: Project[] = [
   {
@@ -66,14 +126,7 @@ export const PROJECTS_DATA: Project[] = [
     longDescription: 'Splendid Lake Breez represents the pinnacle of waterfront urban living in South Bengaluru. Intentionally designed to capture maximum natural cross-ventilation and uninterrupted lake views, each residence is built with meticulous attention to structural acoustics, premium fittings, and open floor planning.',
     story: 'Designed around the natural contours and rhythms of South Bengaluru lake ecosystem, Splendid Lake Breez bridges the gap between serene waterfront tranquillity and immediate access to IT corridors like Electronic City and Bannerghatta Road.',
     heroImage: SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE,
-    gallery: [
-      SPLENDID_LAKE_BREEZ_ELEVATION_IMAGE,
-      lakeBreezGalleryTwo,
-      lakeBreezGalleryThree,
-      lakeBreezGalleryFour,
-      lakeBreezGalleryFive,
-      lakeBreezGallerySix
-    ],
+    gallery: LAKE_BREEZ_GALLERY,
     featured: true,
     coordinates: { lat: 12.879, lng: 77.625 },
     amenities: [
@@ -94,7 +147,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 2,
         bathrooms: 2,
         balconies: 2,
-        image: '/images/projects/floorplan-3bhk.jpg',
+        image: '/floorplan-3bhk.jpg',
         features: ['Lake-facing master bedroom balcony', 'Separate utility zone next to kitchen', 'Vastu-compliant East facing entry']
       },
       {
@@ -106,7 +159,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 3,
         bathrooms: 3,
         balconies: 3,
-        image: '/images/projects/floorplan-2bhk.jpg',
+        image: '/floorplan-2bhk.jpg',
         features: ['Expansive 18ft corner balcony', 'Walk-in wardrobe room in Master Suite', 'Private foyer entry space']
       }
     ],
@@ -142,14 +195,7 @@ export const PROJECTS_DATA: Project[] = [
     longDescription: 'Splendid Elite stands as an architectural tribute to precision and contemporary comfort in the heart of Electronics City Phase 1. Offering intelligent spatial geometry, seamless digital connectivity, and serene landscaped gardens.',
     story: 'Crafted for modern professionals who value both time and aesthetic tranquility, Splendid Elite eliminates long city commutes while providing a calm, gated sanctuary filled with greenery.',
     heroImage: splendidEliteHero,
-    gallery: [
-      splendidEliteHero,
-      eliteGalleryTwo,
-      eliteGalleryThree,
-      eliteGalleryFour,
-      eliteGalleryFive,
-      eliteGallerySix
-    ],
+    gallery: SPLENDID_ELITE_GALLERY,
     featured: true,
     coordinates: { lat: 12.845, lng: 77.662 },
     amenities: [
@@ -169,7 +215,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 2,
         bathrooms: 2,
         balconies: 1,
-        image: '/images/projects/floorplan-3bhk.jpg',
+        image: '/floorplan-3bhk.jpg',
         features: ['Smart home touch switches included', 'Efficient space utilization with zero wasted corridor', 'Utility drying balcony']
       },
       {
@@ -181,7 +227,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 3,
         bathrooms: 3,
         balconies: 2,
-        image: '/images/projects/floorplan-2bhk.jpg',
+        image: '/floorplan-2bhk.jpg',
         features: ['Dual master bedrooms with attached baths', 'Spacious open-plan kitchen bar counter']
       }
     ],
@@ -215,14 +261,7 @@ export const PROJECTS_DATA: Project[] = [
     longDescription: 'Splendid Skywalk redefines the North Bengaluru skyline. Inspired by futuristic international high-rises, the development connects twin residential towers with a dramatic double-height cantilevered skywalk deck at the 18th floor.',
     story: 'North Bengaluru is evolving as the city’s premier innovation and aviation corridor. Splendid Skywalk provides an elevated sanctuary where sweeping views meet high-design living.',
     heroImage: splendidSkywalkHero,
-    gallery: [
-      splendidSkywalkHero,
-      skywalkGalleryTwo,
-      '/balcony-1.jpg',
-      '/eco-garden.jpg',
-      '/splendid-about-brand.jpg',
-      '/exterior-1.jpg'
-    ],
+    gallery: SKYWALK_GALLERY,
     featured: true,
     coordinates: { lat: 13.102, lng: 77.608 },
     amenities: [
@@ -241,7 +280,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 3,
         bathrooms: 3,
         balconies: 3,
-        image: '/images/projects/floorplan-2bhk.jpg',
+        image: '/floorplan-2bhk.jpg',
         features: ['270-degree panoramic airport corridor views', 'Dedicated maid/utility quarter']
       }
     ],
@@ -273,14 +312,7 @@ export const PROJECTS_DATA: Project[] = [
     longDescription: 'Splendid Plaza offers unmatched high-street visibility along Bengaluru’s high-density commercial artery. Featuring energy-efficient glass curtain walls, high-speed elevator banks, and flexible open floor plates.',
     story: 'Designed to elevate brand presence for corporate headquarters and premium retail, Splendid Plaza combines architectural prestige with high footfall accessibility.',
     heroImage: splendidPlazaHero,
-    gallery: [
-      splendidPlazaHero,
-      plazaGalleryTwo,
-      '/commercial-1.jpg',
-      '/plessa.jpg',
-      timesSquareGalleryTwo,
-      timesSquareGalleryThree
-    ],
+    gallery: PLAZA_GALLERY,
     featured: false,
     coordinates: { lat: 12.935, lng: 77.624 },
     amenities: [
@@ -298,7 +330,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 0,
         bathrooms: 4,
         balconies: 0,
-        image: '/images/projects/commercial-1.jpg',
+        image: '/commercial-1.jpg',
         features: ['Columns placed along perimeter for maximum floor layout freedom', 'Double glass facade with energy conservation']
       }
     ],
@@ -328,14 +360,7 @@ export const PROJECTS_DATA: Project[] = [
     longDescription: 'Splendid Times Square captures the vibrant energy of Sarjapur Road’s technology epicenter. Designed with open-air pedestrian avenues, double-height retail storefronts, and premium rooftop restaurant terraces.',
     story: 'Serving over 50,000 tech professionals and affluent residential communities within a 3km radius, Splendid Times Square is destined to become the defining destination for commerce and lifestyle.',
     heroImage: splendidTimesSquareHero,
-    gallery: [
-      splendidTimesSquareHero,
-      timesSquareGalleryTwo,
-      timesSquareGalleryThree,
-      timesSquareGalleryFour,
-      timesSquareGalleryFive,
-      timesSquareGallerySix
-    ],
+    gallery: UNIFIED_PROJECT_GALLERY,
     featured: false,
     coordinates: { lat: 12.911, lng: 77.685 },
     amenities: [
@@ -352,7 +377,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 0,
         bathrooms: 2,
         balconies: 0,
-        image: '/images/projects/villa-1.jpg',
+        image: '/villa-1.jpg',
         features: ['Direct road frontage with 24ft glass display facade', 'Dedicated customer valet drop-off zone']
       }
     ],
@@ -382,14 +407,7 @@ export const PROJECTS_DATA: Project[] = [
     longDescription: 'Skylines offers exclusive low-density high-rise living with only 4 apartments per floor. Designed for families seeking privacy, acoustic isolation, and spacious living rooms bathed in morning sunlight.',
     story: 'Skylines represents Splendid Group’s commitment to timeless architectural proportions and peaceful residential communities in East Bengaluru.',
     heroImage: skylinesHero,
-    gallery: [
-      skylinesHero,
-      skylinesGalleryTwo,
-      '/skylines.jpg',
-      '/living-1.jpg',
-      skylinesGalleryThree,
-      skylinesGalleryFour
-    ],
+    gallery: SKYLINES_GALLERY,
     featured: false,
     coordinates: { lat: 12.908, lng: 77.698 },
     amenities: [
@@ -406,7 +424,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 3,
         bathrooms: 3,
         balconies: 2,
-        image: '/images/projects/floorplan-3bhk.jpg',
+        image: '/floorplan-3bhk.jpg',
         features: ['100% Vastu compliance', 'Separated living & dining areas for private family gatherings']
       }
     ],
@@ -436,14 +454,7 @@ export const PROJECTS_DATA: Project[] = [
     longDescription: 'Lake Dews is a boutique residential community designed around central green courtyards, water fountains, and tranquil seating pavilions. An ideal haven for peaceful family living with quick connectivity to HSR Layout.',
     story: 'Created with a focus on human scale, natural light, and green community spaces, Lake Dews provides a refreshing retreat from urban busyness.',
     heroImage: lakeDewsHero,
-    gallery: [
-      lakeDewsHero,
-      lakeDewsGalleryTwo,
-      lakeDewsGalleryThree,
-      lakeDewsGalleryFour,
-      lakeDewsGalleryFive,
-      lakeDewsGallerySix
-    ],
+    gallery: LAKE_DEWS_GALLERY,
     featured: false,
     coordinates: { lat: 12.888, lng: 77.635 },
     amenities: [
@@ -460,7 +471,7 @@ export const PROJECTS_DATA: Project[] = [
         bedrooms: 2,
         bathrooms: 2,
         balconies: 2,
-        image: '/images/projects/floorplan-3bhk.jpg',
+        image: '/floorplan-3bhk.jpg',
         features: ['Courtyard garden view balcony', 'Spacious modular kitchen space']
       }
     ],

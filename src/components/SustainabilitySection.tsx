@@ -67,7 +67,7 @@ export const SustainabilitySection: React.FC = () => {
             <div className="border border-[#1A1A1A]/10 p-4 bg-white shadow-xl">
               <div className="aspect-[4/3] overflow-hidden">
                 <img
-                  src={getSafeImageUrl("/images/projects/eco-garden.jpg")}
+                  src={getSafeImageUrl("/eco-garden.jpg")}
                   alt="Green eco architecture Splendid Group"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"

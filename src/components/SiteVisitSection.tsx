@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { SiteVisitFormData } from '../types';
 import { PROJECTS_DATA } from '../data/projects';
 import { Calendar, Clock, Car, CheckCircle2, Send, PhoneCall, MessageSquare } from 'lucide-react';
+import { sanitizeSafeUrl, stripControlChars, SecurityPatterns, clientCsrf } from '../utils/security';
 
 interface SiteVisitSectionProps {
   preselectedProject?: string;
@@ -24,19 +25,23 @@ export const SiteVisitSection: React.FC<SiteVisitSectionProps> = ({ preselectedP
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.fullName.trim() || !formData.phone.trim() || !formData.email.trim()) {
+    const rawName = formData.fullName.trim();
+    const rawPhone = formData.phone.trim();
+    const rawEmail = formData.email.trim();
+
+    if (!rawName || rawName.length < 2 || !rawPhone || !SecurityPatterns.phone.test(rawPhone) || !rawEmail || !SecurityPatterns.email.test(rawEmail)) {
       return;
     }
     setIsSubmitting(true);
 
     const cleanData: SiteVisitFormData = {
-      fullName: formData.fullName.trim().slice(0, 80),
-      phone: formData.phone.trim().slice(0, 25),
-      email: formData.email.trim().slice(0, 120),
-      project: formData.project.trim().slice(0, 100),
-      preferredDate: formData.preferredDate.trim().slice(0, 30),
-      preferredTime: formData.preferredTime.trim().slice(0, 30),
-      message: (formData.message || '').trim().slice(0, 500)
+      fullName: stripControlChars(rawName).slice(0, 80),
+      phone: stripControlChars(rawPhone).slice(0, 25),
+      email: rawEmail.toLowerCase().slice(0, 120),
+      project: stripControlChars(formData.project || '').slice(0, 100) || 'Splendid Lake Breez (Begur)',
+      preferredDate: stripControlChars(formData.preferredDate || '').slice(0, 40),
+      preferredTime: stripControlChars(formData.preferredTime || '').slice(0, 40),
+      message: stripControlChars(formData.message || '').slice(0, 500)
     };
 
     const bookingId = `VISIT-${Math.floor(100000 + Math.random() * 900000)}`;
@@ -57,7 +62,8 @@ ${cleanData.message ? `📝 *Notes/Requests:* ${cleanData.message}\n` : ''}
 _Sent via Splendid Group Private Site Visit Portal_`;
 
     const ownerPhone = '919900041880';
-    const whatsappLink = `https://wa.me/${ownerPhone}?text=${encodeURIComponent(waMessage)}`;
+    const rawWaLink = `https://wa.me/${ownerPhone}?text=${encodeURIComponent(waMessage)}`;
+    const whatsappLink = sanitizeSafeUrl(rawWaLink);
     
     setWaUrl(whatsappLink);
     setSubmittedBookingId(bookingId);
@@ -66,10 +72,11 @@ _Sent via Splendid Group Private Site Visit Portal_`;
     window.open(whatsappLink, '_blank', 'noopener,noreferrer');
 
     try {
+      const csrfToken = clientCsrf.getToken();
       await fetch('/api/site-visit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...cleanData, bookingId })
+        body: JSON.stringify({ ...cleanData, bookingId, csrfToken })
       });
     } catch (err) {
       console.error('API submission log:', err);
